@@ -3,15 +3,15 @@
 using namespace std;
 void solve()
 {
-    int n,power=0;
+    int n;
     cin>>n;
-    while(n/2>=1) power++;
-    cout<<(pow(2,power)-1);
+    string s;
+    cin>>s;
+    int alice=0, bob=0;
+    cout<<
 }
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
     int t;
     cin>>t;
     while(t-->0){solve();}
