@@ -1,2 +1,49 @@
 Array-1: Given a list of numbers and a no. k, find if any two numbers from the list add upto k.
+
 LL-1: Linked list insertion, count no. of nodes in list recursively
+
+Array-2: Given an array of integers, return a new array such that each element at index i of the new array is the product of all the      numbers in the original array except the one at i.
+        For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3, 2, 1], the expected output would be [2, 3, 6].
+        Follow-up: what if you can't use division?
+
+RichestBegger-RCB 
+        Akash has recenty joined a new company and on his first day at office his colleague Mr. Goyal (who is always ready to mock him :XD) gave him an interesting problem to solve.
+
+        Assume N beggars, numbered from 1 to N are standing outside a temple. It is given that 'k' people visit the temple on that partucular day.
+
+        Every person who comes out of the temple selects some beggars from 'l' to 'r' and gives each beggar from 'l' to 'r' 1$ each.
+
+        The task is to find out the beggar (or beggars) who gets the maximum amount of money at the end of the day.
+
+        Akash does not want to get insulted on the first day, so he has asked you to help him.
+
+        Input
+        The first line of input contains an integer N denoting the number of beggars.
+
+        The second line contains an integer 'k' denoting the number of people who visit the temple.
+
+        Each of the next k lines contains two integers 'l' and 'r'.
+
+        Output
+        The first line of output contains the maximum amount of money a beggar gets.
+
+        The next line consists the beggars who get the maximum amount of money at the end of the day.
+
+        Constraints
+        1<=N<=2*100000
+
+        1<=k<=100000
+
+        1<=l,r<=100000
+
+        Example
+        Input:
+        6
+        3
+        1 3
+        2 4
+        5 6
+
+        Output:
+        2
+        2 3
