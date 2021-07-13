@@ -5,23 +5,15 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    int arr[n];
+    ll int n,k;
+    cin >> n >> k;
+    ll int arr[n];
     for (int i = 0; i < n; i++)
         cin >> arr[i];
-    int gcd = arr[0];
-    for (int i = 0; i < n; i++) 
-    {
-        if(arr[i]%gcd!=0)
-            gcd = __gcd(arr[i], gcd);
-    }
     int count = 0;
     for (int i = 0; i < n; i++)
-    {
-        count += (arr[i] / gcd);
-    }
-    cout << count << "\n";
+        count += __builtin_popcount(arr[i]);
+    cout << ((count + k + 1) / k);
 }
 
 int main() {
