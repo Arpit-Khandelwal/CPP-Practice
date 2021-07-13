@@ -5,15 +5,25 @@ using namespace std;
 
 void solve()
 {
-    ll int n,k;
+    int n,k;
     cin >> n >> k;
     ll int arr[n];
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n;i++)
         cin >> arr[i];
-    int count = 0;
+    double count[32];
+    int ans = 0;
+    memset(count, 0, sizeof(count));
     for (int i = 0; i < n; i++)
-        count += __builtin_popcount(arr[i]);
-    cout << ((count + k + 1) / k);
+    {
+        for (int j = 0; j < 32;j++)
+        {
+            if(arr[i]&(1<<j))
+                count[j]++;
+        }
+    }
+    for (int i = 0; i < 32; i++)
+        ans+= ceil(count[i] / k);
+    cout << ans<<"\n";
 }
 
 int main() {
