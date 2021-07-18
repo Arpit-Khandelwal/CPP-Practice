@@ -3,7 +3,7 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) 
+vector<int> merge(vector<int>& nums1, int m, vector<int>& nums2, int n) 
 {
     int i, j;
     i = j = 0;
@@ -23,13 +23,31 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
     else if(j==n)
         for (; i < m;i++)
             arr.push_back(nums1[i]);
-    nums1 = arr;
+    return arr;
     //for (i = 0; i < m + n;i++)
     //  cout << nums1[i] << " ";
 }
 
 /*Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Sorted Array.
 Memory Usage: 9.2 MB, less than 27.89% of C++ online submissions for Merge Sorted Array.*/
+
+vector<int> sortedSquares(vector<int>& nums) {
+        /*
+        for(int i=0;i<nums.size();i++) nums[i]*=nums[i];
+    sort(nums.begin(),nums.end());
+    */
+        vector<int> nums1,nums2;
+        int i=0;
+        while(1)
+        {
+            if(nums[i++]>0) break;
+        }
+        for(int j=0;j<i;j++) nums1.push_back(nums[j]); 
+        for(;i<nums.size();i++) nums2.push_back(nums[i]);
+        nums=merge(nums1,nums1.size(),nums2,nums2.size());
+    return nums;
+    }
+
 
 void solve()
 {
