@@ -3,8 +3,7 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-void moveZeroes(vector<int>& nums) 
-{
+void moveZeroes(vector<int>& nums) {
      /*   vector<int> arr;
     int p = 0, i, count = 0;
     int n = nums.size();
@@ -38,6 +37,20 @@ void moveZeroes(vector<int>& nums)
             p++;
         }
     }
+}
+
+void solve()
+{
+    int n, j;
+    vector<int> a;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin >> j;
+        a.push_back(j);
+    }
+    moveZeroes(a);
+    for(int i=0;i<n;i++)
+        cout << a[i] << " ";
 }
 
 int main() {
