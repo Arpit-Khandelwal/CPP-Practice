@@ -259,3 +259,4 @@ Find Pivot Index- Given an array of integers nums, calculate the pivot index of 
         1 <= nums.length <= 104
         -1000 <= nums[i] <= 1000
 
+Squares of Sorted Array -
