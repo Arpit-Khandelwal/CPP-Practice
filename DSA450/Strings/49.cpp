@@ -8,6 +8,9 @@ void solve()
     string S;
     cin >> S;
 
+    map<char, int> count;
+    for (int i = 0; i < S.length();i++)
+        count[S[i]]++;
     
 }
 
