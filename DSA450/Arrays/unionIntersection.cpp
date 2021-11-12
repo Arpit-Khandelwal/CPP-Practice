@@ -17,31 +17,32 @@ void solve()
     for (int i = 0; i < m;i++)
         cin >> arr2[i];
 
+    int union1[m + n];
     int intersection[min(m, n)];
     int count = 0;
     cout << "\nUnion: \n";
-    for (int i = 0, j = 0; i < n && j < m;)
+    for (int i = 0, j = 0; i < n || j < m;)
     {
         if(arr1[i]<arr2[j]) 
         {
             cout << arr1[i] << " ";
             i++;
         }
-        if(arr1[i]>arr2[j])
+        else if(arr1[i]>arr2[j])
         {
             cout << arr2[j] << " ";
             j++;
         }
-        if(arr1[i]==arr2[j])
+        else if(arr1[i]==arr2[j])
         {
             intersection[count++] = arr1[i];
             i++;
             j++;
         }
     }
-
+    cout << "\nIntersection:\n";
     for (int i = 0; i < count;i++)
-        cout << "\nIntersection:\n"<< intersection[i] << " ";
+        cout << intersection[i] << " ";
 }
 
 int main() {
