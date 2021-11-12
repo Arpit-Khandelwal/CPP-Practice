@@ -5,6 +5,9 @@ using namespace std;
 
 void solve()
 {
+    string S;
+    cin >> S;
+
     
 }
 
