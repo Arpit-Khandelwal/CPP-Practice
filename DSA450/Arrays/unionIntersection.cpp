@@ -17,7 +17,14 @@ void solve()
     for (int i = 0; i < m; i++)
         cin >> arr2[i];
 
-    
+    set<int> s;
+    for (int i = 0; i <n;i++)
+        s.insert(arr1[i]);
+    for (int j = 0; j < m;j++)
+        s.insert(arr2[j]);
+
+    for (auto it = s.begin(); it!=s.end();it++)
+        cout << *it << " ";
 }
 
 int main()
