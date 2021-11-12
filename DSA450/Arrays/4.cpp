@@ -28,25 +28,25 @@ void solve()
     //     cout << ans[i] << " ";
 
     int p0 = 0, p1 = 0, p2 = 0;
-    for (int i = 0; i < n;i++) 
+    for (int i = 0; i < n; i++)
     {
-        if(arr[i]==0)
+        if (arr[i] == 0)
             p0++;
-        else if(arr[i]==1)
+        else if (arr[i] == 1)
             p1++;
-        else if(arr[i]==2)
+        else if (arr[i] == 2)
             p2++;
     }
     int i = 0;
-    for (; i < p0;i++)
+    for (; i < p0; i++)
         arr[i] = 0;
-    for (; i < p0+p1;i++)
+    for (; i < p0 + p1; i++)
         arr[i] = 1;
-    for (; i < p0+p1+p2;i++)
+    for (; i < p0 + p1 + p2; i++)
         arr[i] = 2;
-    
-        for (int i = 0; i < n; i++)
-            cout << arr[i] << " ";
+
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
 }
 
 int main()
