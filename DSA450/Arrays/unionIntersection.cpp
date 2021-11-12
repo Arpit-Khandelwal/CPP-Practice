@@ -6,34 +6,34 @@ using namespace std;
 void solve()
 {
     int n;
-    cin>>n;
+    cin >> n;
     int arr1[n];
-    for (int i = 0; i < n;i++)
+    for (int i = 0; i < n; i++)
         cin >> arr1[i];
 
     int m;
     cin >> m;
     int arr2[m];
-    for (int i = 0; i < m;i++)
+    for (int i = 0; i < m; i++)
         cin >> arr2[i];
 
     int union1[m + n];
     int intersection[min(m, n)];
     int count = 0, count1 = 0;
-    
-    for (int i = 0, j = 0; i < n || j < m;)
+    int i, j;
+    for (i = 0, j = 0; i < n || j < m;)
     {
-        if(arr1[i]<arr2[j]) 
+        if (arr1[i] < arr2[j])
         {
-            union1[count++]=arr1[i];
+            union1[count++] = arr1[i];
             i++;
         }
-        else if(arr1[i]>arr2[j])
+        else if (arr1[i] > arr2[j])
         {
-            union1[count++]=arr2[j];
+            union1[count++] = arr2[j];
             j++;
         }
-        else if(arr1[i]==arr2[j])
+        else if (arr1[i] == arr2[j])
         {
             union1[count++] = arr1[i];
             intersection[count1++] = arr1[i];
@@ -41,22 +41,31 @@ void solve()
             j++;
         }
     }
+    
+    if (i > j)
+        while (i--)
+            union1[count++] = arr1[i];
+    else if (j > i)
+        while (j--)
+            union1[count++] = arr2[j];
+
     cout << "\nUnion: \n";
-    for (int i = 0; i < count;i++)
+    for (i = 0; i < count; i++)
         cout << intersection[i] << " ";
     cout << "\nIntersection:\n";
-    for (int i = 0; i < count1;i++)
+    for (i = 0; i < count1; i++)
         cout << intersection[i] << " ";
 }
 
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    ll test=1;
-    cin>>test;
-    while(test--)
+    ll test = 1;
+    cin >> test;
+    while (test--)
     {
         solve();
     }
