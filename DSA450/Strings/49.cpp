@@ -12,6 +12,11 @@ void solve()
     for (int i = 0; i < S.length();i++)
         count[S[i]]++;
     
+    for(auto it:count)
+    {
+        if(it.second>1)
+            cout << it.first << " = " << it.second<<"\n";
+    }
 }
 
 int main() {
