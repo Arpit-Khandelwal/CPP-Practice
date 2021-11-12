@@ -3,7 +3,7 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-void findSmallest(int arr[],int l, int h, int n)
+void findSmallest(int *arr,int l, int h, int n)
 {
     int min = INT_MAX;
     int pos = -1;
@@ -15,9 +15,10 @@ void findSmallest(int arr[],int l, int h, int n)
             pos = i;
         }
     }
-    arr[l] += arr[pos];
-    arr[pos] = arr[l] - arr[pos];
-    arr[l] -= arr[pos];
+    int temp;
+    temp=arr[l];
+    arr[l] = arr[pos];
+    arr[pos] = temp;
 }
 
 void solve()
@@ -35,6 +36,7 @@ void solve()
 
     for (int i = 0; i < n;i++)
         cout << arr[i] << " ";
+    cout << arr[k - 1];
 }
 
 int main() {
