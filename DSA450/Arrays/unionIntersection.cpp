@@ -19,25 +19,29 @@ void solve()
 
     int intersection[min(m, n)];
     int count = 0;
-
+    cout << "\nUnion: \n";
     for (int i = 0, j = 0; i < n && j < m;)
     {
         if(arr1[i]<arr2[j]) 
         {
             cout << arr1[i] << " ";
-            j++;
+            i++;
         }
         if(arr1[i]>arr2[j])
         {
             cout << arr2[j] << " ";
-            i++;
+            j++;
         }
         if(arr1[i]==arr2[j])
+        {
             intersection[count++] = arr1[i];
+            i++;
+            j++;
+        }
     }
 
     for (int i = 0; i < count;i++)
-        cout << "\n"<< intersection[i] << " ";
+        cout << "\nIntersection:\n"<< intersection[i] << " ";
 }
 
 int main() {
