@@ -17,44 +17,7 @@ void solve()
     for (int i = 0; i < m; i++)
         cin >> arr2[i];
 
-    int union1[m + n];
-    int intersection[min(m, n)];
-    int count = 0, count1 = 0;
-    int i, j;
-    for (i = 0, j = 0; i < n || j < m;)
-    {
-        if (arr1[i] < arr2[j])
-        {
-            union1[count++] = arr1[i];
-            i++;
-        }
-        else if (arr1[i] > arr2[j])
-        {
-            union1[count++] = arr2[j];
-            j++;
-        }
-        else if (arr1[i] == arr2[j])
-        {
-            union1[count++] = arr1[i];
-            intersection[count1++] = arr1[i];
-            i++;
-            j++;
-        }
-    }
     
-    if (i > j)
-        while (i--)
-            union1[count++] = arr1[i];
-    else if (j > i)
-        while (j--)
-            union1[count++] = arr2[j];
-
-    cout << "\nUnion: \n";
-    for (i = 0; i < count; i++)
-        cout << intersection[i] << " ";
-    cout << "\nIntersection:\n";
-    for (i = 0; i < count1; i++)
-        cout << intersection[i] << " ";
 }
 
 int main()
