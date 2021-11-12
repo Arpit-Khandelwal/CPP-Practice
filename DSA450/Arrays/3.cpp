@@ -30,8 +30,11 @@ void solve()
         cin >> arr[i];
     cin >> k;
 
-    
-    
+    for (int i = 0; i < k;i++)
+        findSmallest(arr, i, n - 1, n);
+
+    for (int i = 0; i < n;i++)
+        cout << arr[i] << " ";
 }
 
 int main() {
