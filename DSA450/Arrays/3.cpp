@@ -6,7 +6,18 @@ using namespace std;
 void findSmallest(int arr[],int l, int h, int n)
 {
     int min = INT_MAX;
-    
+    int pos = -1;
+    for (int i=l; i <= h;i++)
+    {
+        if(arr[i]<min)
+        {
+            min = arr[i];
+            pos = i;
+        }
+    }
+    arr[l] += arr[pos];
+    arr[pos] = arr[l] - arr[pos];
+    arr[l] -= arr[pos];
 }
 
 void solve()
@@ -19,6 +30,7 @@ void solve()
         cin >> arr[i];
     cin >> k;
 
+    
     
 }
 
