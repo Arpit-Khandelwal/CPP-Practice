@@ -10,9 +10,8 @@ void solve()
     int arr[n];
     for (int i = 0; i < n;i++)
         cin >> arr[i];
-
+        //logic 1
     int totalSum=INT_MIN, sum=0;
-
     for (int i = 0;i<n;i++)
     {
         sum += arr[i];
@@ -23,7 +22,7 @@ void solve()
             sum = 0;
         
     }
-    cout << sum;
+    cout << totalSum;
 }
 
 int main() {
