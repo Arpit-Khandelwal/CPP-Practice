@@ -23,6 +23,15 @@ void solve()
         
     }
     cout << totalSum;
+
+    //logic 2:
+    int sum1 = INT_MIN, sum2 = 0;
+    for (int i = 0;i<n;i++)
+    {
+        sum2 = max(sum1, sum2 + arr[i]);
+        sum1 = max(sum1, sum2);
+    }
+    cout << " " << sum1;
 }
 
 int main() {
