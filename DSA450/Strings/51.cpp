@@ -7,6 +7,8 @@ int solve()
 {
     string s1,s2;
     cin >> s1 >> s2;
+
+    //logic 1
     int l1 = s1.length(), l2 = s2.length();
     if(l1!=l2)
         return 0;
@@ -22,7 +24,7 @@ int solve()
         else
         {
             j++;
-            if(j>l2)
+            if(j>2*l2)
                 return 0;
         }
     }
