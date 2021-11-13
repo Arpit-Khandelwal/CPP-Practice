@@ -13,16 +13,20 @@ int solve()
     int j = 0, i = 0;
     while(i<l1)
     {
-        if(s1[i]==s2[j])            //ABCD
-                                    //CABD
+        if(s1[i]==s2[j])            //ABCD,CADB
         {
             i++;
             j++;
             j %= l2;
         }
         else
+        {
             j++;
+            if(j>l2)
+                return 0;
+        }
     }
+    return 1;
 }
 
 int main() {
