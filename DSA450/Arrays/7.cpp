@@ -10,6 +10,12 @@ void solve()
     int arr[n];
     for (int i = 0; i < n;i++)
         cin >> arr[i];
+
+    int temp = arr[n - 1]; //store last element
+    for (int i = n - 2; i >= 0;i--)     //push all elements forward
+        arr[i + 1] = arr[i];
+    arr[0] = temp; //put last element to first
+
     
 }
 
