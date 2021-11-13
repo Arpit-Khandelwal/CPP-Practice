@@ -24,7 +24,7 @@ void solve()
     }
     cout << totalSum;
 
-    //logic 2:
+    //logic 2: OP logic
     int sum1 = INT_MIN, sum2 = 0;
     for (int i = 0;i<n;i++)
     {
