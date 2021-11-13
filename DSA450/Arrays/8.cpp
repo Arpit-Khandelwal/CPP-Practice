@@ -10,6 +10,20 @@ void solve()
     int arr[n];
     for (int i = 0; i < n;i++)
         cin >> arr[i];
+
+    int totalSum=INT_MIN, sum=0;
+
+    for (int i = 0;i<n;i++)
+    {
+        sum += arr[i];
+        if(totalSum<sum)
+            totalSum = sum;
+        
+        if(sum<0)
+            sum = 0;
+        
+    }
+    cout << sum;
 }
 
 int main() {
