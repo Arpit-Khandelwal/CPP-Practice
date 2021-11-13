@@ -16,7 +16,8 @@ void solve()
         arr[i + 1] = arr[i];
     arr[0] = temp; //put last element to first
 
-    
+    for (int i = 0; i < n;i++)
+        cout<< arr[i]<<" ";
 }
 
 int main() {
