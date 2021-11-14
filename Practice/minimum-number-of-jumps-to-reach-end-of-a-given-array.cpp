@@ -14,16 +14,8 @@ void solve()
     int maxPos = 0, count = 0;
     for (int i = 0; arr[i]+i < n-1;)
     {
-        int max = 0;
-        for (int j = i; j <= i+arr[i]; j++)
-        {
-            if (arr[j] > max)
-            {
-                max = arr[j];
-                maxPos = j;
-            }
-        }
-        i = maxPos;
+        int max = max_element(arr, arr + arr[i]+1)-arr;
+        i = distance(arr,max+arr);
         count++;
     }
     cout << ++count;
