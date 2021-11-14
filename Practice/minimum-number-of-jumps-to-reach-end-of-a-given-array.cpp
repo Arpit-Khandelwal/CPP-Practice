@@ -3,10 +3,16 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-void solve()
+int solve()
 {
-    int a[] = {1,4,3,2,6,7};
+    int a[] = {0};
     int n = sizeof(a) / sizeof(int);
+
+    if (n <= 1)
+        return 0;
+ 
+    if (a[0] == 0)
+        return -1;
 
     // for (int i = 0; i < n; i++)
     //     cin >> arr[i];
@@ -18,7 +24,7 @@ void solve()
         i = distance(arr.begin(),max + arr.begin());
         count++;
     }
-    cout << ++count;
+    return ++count;
 }
 
 int main()
@@ -31,7 +37,7 @@ int main()
     cin >> test;
     while (test--)
     {
-        solve();
+        cout<<solve()<<" ";
     }
     return 0;
 }
