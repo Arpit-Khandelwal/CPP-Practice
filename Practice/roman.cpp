@@ -10,57 +10,56 @@ void solve()
 
     string s = "";
 
-    for (int i = 0; i < n / 1000;i++)
+    for (int i = 0; i < n / 1000; i++)
         s += "M";
     n %= 1000;
 
-    for (int i = 0; i < n / 500;i++)
+    for (int i = 0; i < n / 500; i++)
         s += "D";
     n %= 500;
-    for (int i = 0; i < n / 100;i++)
+    for (int i = 0; i < n / 100; i++)
         s += "C";
     n %= 100;
-    for (int i = 0; i < n / 50;i++)
+    for (int i = 0; i < n / 50; i++)
         s += "L";
     n %= 50;
-    for (int i = 0; i < n / 10;i++)
+    for (int i = 0; i < n / 10; i++)
         s += "X";
     n %= 10;
 
-    for (int i = 0; i < n / 5;i++)
+    for (int i = 0; i < n / 5; i++)
         s += "V";
     n %= 5;
-    for (int i = 0; i < n ;i++)
+    for (int i = 0; i < n; i++)
         s += "I";
 
-    cout <<"\n"<< n << " : " << s;
+    cout << "\n"
+         << s;
     try
     {
         /* code */
-        s = s.replace(s.find("CCCC",0), 4, "CD");
-    s = s.replace(s.find("LLLL",0), 4, "LC");
-    s = s.replace(s.find("XXXX",0), 4, "XL");
-    s = s.replace(s.find("IIII",0), 4, "IV");
-    cout <<"\n"<< n << " : " << s;
+        s = s.replace(s.find("CCCC", 0), 4, "CD");
+        s = s.replace(s.find("LLLL", 0), 4, "LC");
+        s = s.replace(s.find("XXXX", 0), 4, "XL");
+        s = s.replace(s.find("IIII", 0), 4, "IV");
+        cout << "\n"
+             << s;
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-    
-
 }
 
-
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    ll test=1;
-    cin>>test;
-    while(test--)
+    ll test = 1;
+    cin >> test;
+    while (test--)
     {
         solve();
     }
