@@ -5,17 +5,17 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
+    int arr[] = {1,4,3,2,6,7};
+    int n = sizeof(arr) / sizeof(int);
 
-    int maxPos = 0, count = 0;
+    // for (int i = 0; i < n; i++)
+    //     cin >> arr[i];
+
+    int maxPos = 0, count = 1;
     for (int i = 0; arr[i]+i < n;)
     {
         int max = 0;
-        for (int j = 0; j < arr[i]; j++)
+        for (int j = 0; j <= i+arr[i]; j++)
         {
             if (arr[j] > max)
             {
