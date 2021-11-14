@@ -12,7 +12,7 @@ void solve()
     //     cin >> arr[i];
 
     int maxPos = 0, count = 0;
-    for (int i = 0; arr[i]+i < n;)
+    for (int i = 0; arr[i]+i >= n-1;)
     {
         int max = 0;
         for (int j = i; j <= i+arr[i]; j++)
