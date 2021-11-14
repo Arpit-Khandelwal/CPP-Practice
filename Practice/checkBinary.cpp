@@ -3,17 +3,22 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-int solve()
+void solve()
 {
-    char *str;
+    string str;
     cin>>str;
-    int i=0;
+    
     //Code here
-    for(char s=str[i];i<strlen(str);i++)
+    for(int i=0;i<str.length();i++)
     {
-        if((int)s !=49 || (int)s!=48) return 0;
+        char ch = str[i];
+        if(ch <'0' || ch>'1')
+            {
+                cout << 0;
+                return;
+            }
     }
-    return 1;
+    cout << 1;
 }
 
 int main() {
@@ -25,7 +30,7 @@ int main() {
     cin>>test;
     while(test--)
     {
-        cout<< solve()<<" ";
+        solve();
     }
     return 0;
 }
