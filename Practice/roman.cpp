@@ -35,20 +35,7 @@ void solve()
 
     cout << "\n"
          << s;
-    try
-    {
-        /* code */
-        s = s.replace(s.find("CCCC", 0), 4, "CD");
-        s = s.replace(s.find("LLLL", 0), 4, "LC");
-        s = s.replace(s.find("XXXX", 0), 4, "XL");
-        s = s.replace(s.find("IIII", 0), 4, "IV");
-        cout << "\n"
-             << s;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    
 }
 
 int main()
