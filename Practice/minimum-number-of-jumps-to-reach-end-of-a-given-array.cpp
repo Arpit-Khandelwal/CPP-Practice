@@ -5,17 +5,17 @@ using namespace std;
 
 void solve()
 {
-    int arr[] = {1,4,3,2,6,7};
-    int n = sizeof(arr) / sizeof(int);
+    int a[] = {1,4,3,2,6,7};
+    int n = sizeof(a) / sizeof(int);
 
     // for (int i = 0; i < n; i++)
     //     cin >> arr[i];
-
+    vector<int> arr(a, a + n);
     int maxPos = 0, count = 0;
     for (int i = 0; arr[i]+i < n-1;)
     {
-        int max = max_element(arr, arr + arr[i]+1)-arr;
-        i = distance(arr,max+arr);
+        int max = max_element(arr.begin(), arr.begin() + arr[i]+1)-arr.begin();
+        i = distance(arr.begin(),max + arr.begin());
         count++;
     }
     cout << ++count;
