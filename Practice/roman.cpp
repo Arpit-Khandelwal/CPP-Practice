@@ -5,9 +5,10 @@ using namespace std;
 
 void solve()
 {
-    string s;
-    cin >> s;
-    
+    int n;
+    cin >> n;
+
+
 }
 
 int main() {
