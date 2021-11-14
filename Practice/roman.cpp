@@ -34,11 +34,21 @@ void solve()
         s += "I";
 
     cout <<"\n"<< n << " : " << s;
-    s = s.replace(s.find("CCCC",0), 4, "CD");
+    try
+    {
+        /* code */
+        s = s.replace(s.find("CCCC",0), 4, "CD");
     s = s.replace(s.find("LLLL",0), 4, "LC");
     s = s.replace(s.find("XXXX",0), 4, "XL");
     s = s.replace(s.find("IIII",0), 4, "IV");
     cout <<"\n"<< n << " : " << s;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    
 
 }
 
