@@ -3,7 +3,7 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-string replace(string s1,string s2,string s3)
+string replace(string s1, string s2, string s3)
 {
     size_t index = 0;
     while (true)
@@ -54,11 +54,16 @@ void solve()
 
     cout << "\n"
          << s;
-    
-    s=replace(s,"CCCC","CD");
-    s=replace(s,"XXXX","XL");
-    s=replace(s,"IIII","IV");
-    cout <<"\n"<<s;
+
+    s = replace(s, "CCCC", "CD");
+    s = replace(s, "XXXX", "XL");
+    s = replace(s, "IIII", "IV");
+
+    s = replace(s,"DCD", "CM");
+    s = replace(s,"LXL", "XC");
+    s = replace(s,"VIV", "IX");
+    cout << "\n"
+         << s;
 }
 
 int main()
