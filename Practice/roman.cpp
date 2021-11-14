@@ -19,6 +19,7 @@ string replace(string s1,string s2,string s3)
         /* Advance index forward so the next iteration doesn't pick it up as well. */
         index += s2.length();
     }
+    return s1;
 }
 
 void solve()
@@ -55,7 +56,6 @@ void solve()
          << s;
     
     s=replace(s,"CCCC","CD");
-    s=replace(s,"LLLL","LC");
     s=replace(s,"XXXX","XL");
     s=replace(s,"IIII","IV");
     cout <<"\n"<<s;
