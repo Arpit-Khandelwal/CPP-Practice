@@ -9,7 +9,7 @@ void solve()
     cin >> n;
 
     string s = "";
-    
+
     for (int i = 0; i < n / 1000;i++)
         s += "M";
     n %= 1000;
@@ -34,7 +34,14 @@ void solve()
         s += "I";
 
     cout <<"\n"<< n << " : " << s;
+    s = s.replace(s.find("CCCC"), 4, "CD");
+    s = s.replace(s.find("LLLL"), 4, "LC");
+    s = s.replace(s.find("XXXX"), 4, "XL");
+    s = s.replace(s.find("IIII"), 4, "IV");
+    cout <<"\n"<< n << " : " << s;
+
 }
+
 
 int main() {
     ios_base::sync_with_stdio(false);
