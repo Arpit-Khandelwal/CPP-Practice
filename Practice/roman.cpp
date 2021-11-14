@@ -35,7 +35,21 @@ void solve()
 
     cout << "\n"
          << s;
-    
+    size_t index = 0;
+    while (true)
+    {
+        /* Locate the substring to replace. */
+        index = s.find("CCCC", index);
+        if (index == std::string::npos)
+            break;
+
+        /* Make the replacement. */
+        s.replace(index, 4, "CD");
+
+        /* Advance index forward so the next iteration doesn't pick it up as well. */
+        index += 4;
+    }
+    cout <<"\n"<<s;
 }
 
 int main()
