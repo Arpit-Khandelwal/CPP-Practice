@@ -3,6 +3,24 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
+string replace(string s1,string s2,string s3)
+{
+    size_t index = 0;
+    while (true)
+    {
+        /* Locate the substring to replace. */
+        index = s1.find(s2, index);
+        if (index == std::string::npos)
+            break;
+
+        /* Make the replacement. */
+        s1.replace(index, s2.length(), s3);
+
+        /* Advance index forward so the next iteration doesn't pick it up as well. */
+        index += s2.length();
+    }
+}
+
 void solve()
 {
     int n;
@@ -35,20 +53,11 @@ void solve()
 
     cout << "\n"
          << s;
-    size_t index = 0;
-    while (true)
-    {
-        /* Locate the substring to replace. */
-        index = s.find("CCCC", index);
-        if (index == std::string::npos)
-            break;
-
-        /* Make the replacement. */
-        s.replace(index, 4, "CD");
-
-        /* Advance index forward so the next iteration doesn't pick it up as well. */
-        index += 4;
-    }
+    
+    s=replace(s,"CCCC","CD");
+    s=replace(s,"LLLL","LC");
+    s=replace(s,"XXXX","XL");
+    s=replace(s,"IIII","IV");
     cout <<"\n"<<s;
 }
 
