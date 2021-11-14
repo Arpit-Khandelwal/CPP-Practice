@@ -3,9 +3,9 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-void solve()
+int solve()
 {
-    string str;
+    char *str;
     cin>>str;
     int i=0;
     //Code here
