@@ -27,6 +27,7 @@ int solve()
     }
     return ++count;
     */
+   
     int moves = arr[0], jumps = 1;
     int maxBound =arr[0];
     for (int i = 1;i<n;i++) 
