@@ -26,10 +26,17 @@ void solve()
         }
     }
 
-    //two pointer
+    //two pointer - need to implement
+    /*
     int l = 0, r = n - 1;
     while(arr[l]!=arr[r])
         l++;
+    */
+
+   //o(n) god level
+   while(arr[0]!=arr[arr[0]])
+            swap(arr[0],arr[arr[0]]);
+        cout<< arr[0];
 }
 
 int main() {
