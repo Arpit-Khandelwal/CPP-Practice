@@ -37,6 +37,10 @@ void solve()
    while(arr[0]!=arr[arr[0]])
             swap(arr[0],arr[arr[0]]);
         cout<< arr[0];
+    //explanation
+    /*
+    arrange items in such a way that if array is [3,1,4,2,3], then at nume[0], we have 3, so we swap 3 with nums[3], effectively putting 3 at 3rd index in the array, so any N would be placed at index N, and if we encounter any N in the array, then we can possibly find it at arr[N]
+    */
 }
 
 int main() {
