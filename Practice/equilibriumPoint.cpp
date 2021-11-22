@@ -26,30 +26,31 @@ int equilibriumPoint(long long a[], int n)
             return l;
     }
     return l;
+}
 
-    void solve()
+void solve()
+{
+    int n;
+    cin >> n;
+
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    cout << equilibriumPoint(arr, n);
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    ll test = 1;
+    cin >> test;
+    while (test--)
     {
-        int n;
-        cin >> n;
-
-        int arr[n];
-        for (int i = 0;i<n;i++)
-            cin >> arr[i];
-
-        cout<<equilibriumPoint(arr, n);
+        solve();
     }
-
-    int main()
-    {
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-        cout.tie(NULL);
-
-        ll test = 1;
-        cin >> test;
-        while (test--)
-        {
-            solve();
-        }
-        return 0;
-    }
+    return 0;
+}
