@@ -7,7 +7,7 @@ int equilibriumPoint(long long a[], int n)
 {
 
     // Your code here
-
+/* my logic
     if (n == 1)
         return 1;
 
@@ -23,9 +23,24 @@ int equilibriumPoint(long long a[], int n)
         else if (sum1 < sum2)
             l++;
         else
-            return l;
+            return (l+h)/2;
     }
     return l;
+    */
+   
+   //GFG Logic - find sum of array then interatively subatract arr[i] from sum of array to find point of equilibrium
+    int sum = 0;
+    for (int i = 0; i < n;i++)
+        sum += a[i];
+    int leftSum = 0;
+    for (int i = 0; i < n;i++)
+    {
+        sum -= a[i];
+        if(sum==leftSum)
+            return i;
+        leftSum += a[i];
+    }
+    return -1;
 }
 
 void solve()
