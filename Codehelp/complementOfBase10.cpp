@@ -9,10 +9,24 @@ void solve()
     cin>>n; 
 
     //flip all 1 to 0 and 0 to 1
-    //eg. input=5, output = ~(101)=010=2
+    //eg. input=5(101), output = ~(101)=010=2
+/*
+    string s[n];
+    int l = 0, temp=n;
+    while(temp>0)
+    {
+        l++;
+        temp /= 10;
+    }
+    temp = n;
+    for (int i = 0; i < l; i++)
+    {
+        s[i] = (char)((temp % 10) + 48) ;
+        temp /= 10;
+    }
 
-    
-
+    cout << s;
+    */
 }
 
 int main() {
