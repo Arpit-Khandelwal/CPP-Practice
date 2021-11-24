@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 #define ll long long
 #define mod 1000000007
@@ -27,6 +28,11 @@ void solve()
 
     cout << s;
     */
+
+   int temp=0;
+   while(temp<n)
+       temp = 2 * temp + 1; //make a 11111 number with n's number of digits
+    cout<< (temp ^ n);   //eg n=5(101) and temp will be 111, therefore, 111^101=010 =output
 }
 
 int main() {
@@ -39,6 +45,7 @@ int main() {
     while(test--)
     {
         solve();
+        cout << endl;
     }
     return 0;
 }
