@@ -15,17 +15,17 @@ void solve()
     }
      
      //O(n^2)
-    for (int i = 0; i < n;i++)
+    for (int i = 0; i < n-1;i++)
     {
-        for (int j = i; j < n;j++)
+        for (int j = i+1; j < n;j++)
         {
             if(arr[i]==arr[j]) {
-                cout << arr[i];
+                //cout << arr[i];
                 break;
             }
         }
     }
-
+    cout<<endl;
     //two pointer - need to implement
     /*
     int l = 0, r = n - 1;
