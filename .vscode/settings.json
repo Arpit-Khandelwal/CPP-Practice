@@ -3,6 +3,7 @@
         "iostream": "cpp"
     },
     "files.exclude": {
-        "*.exe": true
-        }
+        "**/*.exe": true,
+        "**/*.o": true
+    }
 }
