@@ -1,7 +1,11 @@
 //https://leetcode.com/problems/unique-number-of-occurrences
+#include <iostream>
+#include <algorithm> 
+#include<vector>
+using namespace std;
 class Solution {
 public:
-    bool uniqueOccurrences(vector<int>& arr) {
+    bool uniqueOccurrences(vector<int> arr) {
         int n=arr.size();
         sort(arr.begin(),arr.end());
         int count=1;
