@@ -33,7 +33,7 @@ void solve()
         l++;
     */
 
-   //xor approach
+   //xor approach - O(N)
     int ans = 0;
     for (int i = 0; i < n;i++)
         ans  = ans ^ i ^ arr[i];
