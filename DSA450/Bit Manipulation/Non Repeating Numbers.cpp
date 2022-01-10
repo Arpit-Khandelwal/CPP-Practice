@@ -24,4 +24,19 @@ vector<int> singleNumber(vector<int> nums)
     ans.push_back(dist2);
     sort(ans.begin(), ans.end());
     return ans;
+
+    /* counting all occourences and storing in map
+    map<int,int>count;
+        vector<int>ans;
+        for(auto num:nums)
+        {
+            count[num]++;
+        }
+        
+        for(auto i:count)
+        {
+            if(i.second==1) ans.push_back(i.first);
+        }
+        return ans;
+    */
 }
