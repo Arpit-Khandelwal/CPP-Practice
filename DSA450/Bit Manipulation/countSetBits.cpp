@@ -13,7 +13,7 @@ int setBits(int N)
 
     /*logic-2
 
-        for(int i=0;i<sizeof(int)*8;i++)
+        for(int i=0;i<sizeof(int)*8;i++) //sizeof(int)*8 because of constraints on N
         {
             if(N&(1<<i)) count++;
         }
