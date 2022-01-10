@@ -19,5 +19,7 @@ int setBits(int N)
         }
     */
 
+   //__builtin_popcount(n) - count all set bits
+
     return count;
 }
