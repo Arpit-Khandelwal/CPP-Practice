@@ -3,6 +3,18 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
+void rotate(vector<int>& nums, int k) {
+        //logic 2
+        int n=nums.size();
+        vector<int> arr(n,0);
+        
+        for(int i=0;i<n;i++)
+            arr[(i+k)%n]=nums[i];
+        swap(arr,nums);
+        arr.clear();
+               
+    }
+
 void solve()
 {
     int n, d;
@@ -10,7 +22,7 @@ void solve()
     int arr[n];
     for (int i = 0; i < n;i++)
         cin >> arr[i];
-    //logic to rotate array
+    //logic 1 to rotate array
     d%=n;
     int k=0;
     
