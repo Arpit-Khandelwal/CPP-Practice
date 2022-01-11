@@ -21,16 +21,13 @@ void solve()
     int window_start = 0, window_end = k;
     for (int i = window_start; i < window_end; i++)
         sum += arr[i];
-        
+
     while (window_end < n)
     {
-       
-        window_start++;
-        window_end++;
-        sum -= arr[window_start - 1];
-        sum += arr[window_end - 1];
+        sum -= arr[window_start++];
+        sum += arr[window_end++];
         max_sum = max(max_sum, sum);
-         cout << "Sum: " << sum << " Max sum: " << max_sum<<endl;
+        // cout << "Sum: " << sum << " Max sum: " << max_sum << endl;
     }
     cout << max_sum << endl;
 }
