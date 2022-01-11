@@ -8,9 +8,8 @@ int findPosition(int N) {
         if(!(N)) return -1;
         float ans = log(N)/log(2);
         if(ans!=floor(ans)) return -1;
-        else return ans+1;
-        
-        
+        else return ans+1;    
+    
     }
 
 void solve()
