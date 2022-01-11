@@ -3,20 +3,21 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-int findPosition(int N) {
-        // code here
-        if(!(N)) return -1;
-        float ans = log(N)/log(2);
-        if(ans!=floor(ans)) return -1;
-        else return ans+1;    
-    
-    }
-
 void solve()
 {
-    int n;
-    cin >> n;
-    cout << findPosition(n) << endl;
+    char ch;
+    cin >> ch;
+
+    int n, m;
+    cin >> n >> m;
+
+    string s[n];
+    for (int i = 0; i < n;i++)
+        cin >> s[i];
+    string phone;
+    cin >> phone;
+
+    int pos = 0;
     
 }
 
