@@ -3,21 +3,25 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-int findPosition(int N) {
-        // code here
-        if(!(N)) return -1;
-        float ans = log(N)/log(2);
-        if(ans!=floor(ans)) return -1;
-        else return ans+1;    
-    
+bool isPowerofTwo(long long n){
+        
+        // Your code here   
+        if(n==0) return false;
+        float ans = log(n)/log(2);
+        
+        if(floor(ans)==ans) return true;
+        else return false;
+        
     }
 
 void solve()
 {
     int n;
     cin >> n;
-    cout << findPosition(n) << endl;
-    
+    if(isPowerofTwo(n))
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
 }
 
 int main() {
