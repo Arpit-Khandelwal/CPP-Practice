@@ -29,6 +29,14 @@ void solve()
         max_sum = max(max_sum, sum);
         // cout << "Sum: " << sum << " Max sum: " << max_sum << endl;
     }
+
+    /*
+    for(int i=k;i<n;i++)
+    {
+        sum+=arr[i]-arr[i-k];
+        max_sum = max(max_sum,sum);
+    }
+    */
     cout << max_sum << endl;
 }
 
