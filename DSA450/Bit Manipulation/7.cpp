@@ -16,7 +16,6 @@ void copySetBits(unsigned &x, unsigned y, unsigned l, unsigned r)
     }
     */
    //O(1) logic
-    int numDig = (log(y) / log(2)) + 1;
     int mask = 1ll << (r-l+1);
     mask -= 1;
     //cout << "Original mask: " << mask << endl;
