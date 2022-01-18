@@ -5,31 +5,46 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-void solve()
+int solve(ll int a, ll int b)
 {
-    int a,b;
-    cin >> a >> b;
 
-    int count = 0;
+    ll int count = 0;
+    /*
     while(a>=b)
     {
         a -= b;
         count++;
     }
+    */
+    int sign = (b < 0) ^ (a < 0) ? -1 : 1;
+    a = abs(a);
+    b = abs(b);
+    int q = 0;
+    for (int i = 31; i >= 0; i--)
+    {
+        if (count + (b << i) <= a)
+        {
+            count += b << i;
+            q |= 1LL << i;
+        }
+    }
 
-    cout << count << endl;
+    return q * sign;
 }
 
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    ll test=1;
-    cin>>test;
-    while(test--)
+    ll test = 1;
+    cin >> test;
+    while (test--)
     {
-        solve();
+        int a, b;
+        cin >> a >> b;
+        cout << solve(a, b) << endl;
     }
     return 0;
 }
