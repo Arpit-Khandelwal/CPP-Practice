@@ -8,7 +8,7 @@ using namespace std;
 int countSetBits(int n)
 {
     // Your logic here
-    //recursion
+    /*recursion
     if (n == 1)
         return 1;
     else
@@ -22,11 +22,23 @@ int countSetBits(int n)
         }
         return count + countSetBits(n - 1);
     }
+    */
+    int pow2 = 1;
+    int count = 0;
+    while (pow2 <= n)
+    {
+        int pairs = n / pow2;
+        int setPairs = pairs / 2;
+        int setBits = setPairs * pow2;
+        int extra = n % pow2;
+        count += setBits + extra;
+        pow2 <<= 1;
+    }
+    return count;
 }
 
 void solve()
 {
-
 }
 
 int main()
