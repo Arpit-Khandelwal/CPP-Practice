@@ -14,7 +14,7 @@ void solve()
         cin >> x;
         arr.push_back(x);
     }
-    vector<ll int> y(l,0);
+    vector<ll int> y(l, 0);
     int index = l;
     while (index > 0)
     {
@@ -30,10 +30,9 @@ void solve()
             arr[i++] >>= 1;
         }
         y[--index] = (count1 > count0) ? 1 : 0;
-        
     }
     //cout << endl;
-  
+
     int ans = 0;
     int power2 = 1;
     for (int i = 0; i < l; i++)
@@ -42,7 +41,8 @@ void solve()
         //cout << "power2 " << power2 << "\tAns: "<<ans<<"\t l: "<<l<<endl;
         power2 <<= 1;
     }
-        cout <<"Ans :"<< ans << endl;
+    //        cout <<"Ans :"<< ans << endl;
+    cout << ans << endl;
 }
 
 int main()
