@@ -3,21 +3,37 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-int findSmallest(int *arr, int l, int h, int k)
+int findSmallest(int *arr, int l, int r, int k)
 {
     /*primitive logic
-    sort(arr, arr + h + 1);
+    sort(arr, arr + r + 1);
     return arr[k - 1];
     */
 
-    //using set, which are implemented in bst
-    set<int> arr_set(arr, arr + h + 1);
+    /*using set, which are implemented in bst
+    set<int> arr_set(arr, arr + r + 1); //O(nlogn)
     set<int>::iterator itr = arr_set.begin();
 
     while(--k>0)    //gives TLE
         itr++;
     //alternate of while loop - advance(arr,k-1);
     return *itr;
+    */
+
+   /*using map
+    map<int, int> count;
+    for (int i = l; i <= r;i++)
+        count[arr[i]]++;        //O(nlogn)
+    
+    int freq = 0;
+    for(auto i:count)
+    {
+        freq += i.second;
+        if(freq>=k)
+            return i.first;
+    }
+    return -1;
+    */
 }
 
 void solve()
