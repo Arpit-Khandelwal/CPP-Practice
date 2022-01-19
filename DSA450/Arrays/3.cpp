@@ -5,8 +5,19 @@ using namespace std;
 
 int findSmallest(int *arr, int l, int h, int k)
 {
+    /*primitive logic
     sort(arr, arr + h + 1);
     return arr[k - 1];
+    */
+
+    //using set, which are implemented in bst
+    set<int> arr_set(arr, arr + h + 1);
+    set<int>::iterator itr = arr_set.begin();
+
+    while(--k>0)    //gives TLE
+        itr++;
+    //alternate of while loop - advance(arr,k-1);
+    return *itr;
 }
 
 void solve()
