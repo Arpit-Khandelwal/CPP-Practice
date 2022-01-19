@@ -3,22 +3,10 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-void findSmallest(int *arr,int l, int h, int n)
+int findSmallest(int *arr, int l, int h, int k)
 {
-    int min = INT_MAX;
-    int pos = -1;
-    for (int i=l; i <= h;i++)
-    {
-        if(arr[i]<min)
-        {
-            min = arr[i];
-            pos = i;
-        }
-    }
-    int temp;
-    temp=arr[l];
-    arr[l] = arr[pos];
-    arr[pos] = temp;
+    sort(arr, arr + h + 1);
+    return arr[k - 1];
 }
 
 void solve()
@@ -27,26 +15,22 @@ void solve()
     cin >> n;
     int arr[n];
     int k;
-    for (int i = 0; i < n;i++)
+    for (int i = 0; i < n; i++)
         cin >> arr[i];
     cin >> k;
 
-    for (int i = 0; i < k;i++)
-        findSmallest(arr, i, n - 1, n);
-
-    for (int i = 0; i < n;i++)
-        cout << arr[i] << " ";
-    cout << arr[k - 1];
+    cout << findSmallest(arr, 0, n - 1, k) << endl;
 }
 
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    ll test=1;
-    cin>>test;
-    while(test--)
+    ll test = 1;
+    cin >> test;
+    while (test--)
     {
         solve();
     }
