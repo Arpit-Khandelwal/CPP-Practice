@@ -12,9 +12,9 @@ void solve()
     // for (int i = 0; i < n; i++)
     //     cin >> arr[i];
 
-    int arr[] = {-12, 11, -13, -5,6, -7, 5, -3, -6};
-     int n = sizeof(arr) /sizeof(arr[0]);
-
+    int arr[] = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    
     int l = 0, h = n - 1;
     while(l<h)
     {
@@ -22,9 +22,7 @@ void solve()
         {
             if(arr[h]<0)
             {
-                arr[h] += arr[l];
-                arr[l] = arr[h] - arr[l];
-                arr[h] -= arr[l];
+                swap(arr[l],arr[h]);
                 h--;
                 l++;
             }
@@ -34,19 +32,34 @@ void solve()
         else
             l++;
     }
+    
+/*
+    //logic - 21Jan22, using two pointers to track positive and negative elements, same approach as above
+    for (int i = 0, j = n - 1; i <= j;)
+    {
+        while (arr[i] < 0) i++;
+        while (arr[j] > 0) j--;
 
+        if(i<=j){
+        swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+*/
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
 }
 
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    ll test=1;
-    cin>>test;
-    while(test--)
+    ll test = 1;
+    cin >> test;
+    while (test--)
     {
         solve();
     }
