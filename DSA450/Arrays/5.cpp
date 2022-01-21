@@ -14,7 +14,7 @@ void solve()
 
     int arr[] = {-12, 11, -13, -5, 6, -7, 5, -3, -6};
     int n = sizeof(arr) / sizeof(arr[0]);
-    
+    /*
     int l = 0, h = n - 1;
     while(l<h)
     {
@@ -32,7 +32,7 @@ void solve()
         else
             l++;
     }
-    
+    */
 /*
     //logic - 21Jan22, using two pointers to track positive and negative elements, same approach as above
     for (int i = 0, j = n - 1; i <= j;)
@@ -47,6 +47,14 @@ void solve()
         }
     }
 */
+
+    //less precise logic - swap all negative array elements from starting of array
+    int j=0;
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]<0 && i!=j) swap(arr[i],arr[j++]);
+    }
+
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
 }
