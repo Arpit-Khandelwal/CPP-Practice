@@ -21,7 +21,9 @@ int solve()
     int l = 0, h = n - 1, mid;
     while (l <= h)
     {
-        mid = (l + h) / 2;
+        mid = (l + h) / 2; //works for almost all cases except when l+h > INT_MAX
+        //therefore, we can compute mid as
+        mid = l + ((h - l) / 2); //handles Overflow of INT_MAX
         if (k > arr[mid])
             l = mid + 1;
 
@@ -43,7 +45,7 @@ int main()
     cin >> test;
     while (test--)
     {
-        cout<<solve()<<endl;
+        cout << solve() << endl;
     }
     return 0;
 }
