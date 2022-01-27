@@ -9,7 +9,7 @@ void solve()
     cin >> n;
     vector<int> a;
     vector<int> b;
-    int x, max_a = a[0], max_b = b[0];
+    int x, max_a = INT_MIN, max_b = INT_MIN;
     for (int i = 0; i < n; i++)
     {
         cin >> x;
@@ -39,13 +39,18 @@ void solve()
                 swap(a[i], b[i]);
         }
     }
+
+    // for (int i = 0; i < n;i++)
+    // {
+    //     cout << a[i] << " " << b[i] << endl;
+    // }
     max_a = a[0], max_b = b[0];
     for (int i = 0; i < n; i++)
     {
         max_a = max(max_a, a[i]);
-        max_b = max(max_b, a[i]);
+        max_b = max(max_b, b[i]);
     }
-    cout << max_a * max_b << endl;
+    cout <<max_a * max_b << endl;
 }
 
 int main()
