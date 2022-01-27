@@ -6,6 +6,8 @@ pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
 {
     // Write your code here
     pair<int, int> p = {-1, -1};
+
+    //for first pos
     int l = 0, h = n - 1, mid;
     while (l <= h)
     {
@@ -17,12 +19,13 @@ pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
         else
         {
             p.first = mid;
-            h = mid - 1;
+            h = mid - 1; //check in first half of subarray
         }
     }
     if (p.first == -1)
         return p;
 
+//to find last pos
     l = 0, h = n - 1, mid;
     while (l <= h)
     {
@@ -34,7 +37,7 @@ pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
         else
         {
             p.second = mid;
-            l = mid + 1;
+            l = mid + 1; //check in latter half of array
         }
     }
     return p;
