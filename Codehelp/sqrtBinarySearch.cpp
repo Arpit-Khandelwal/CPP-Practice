@@ -47,7 +47,7 @@ int main() {
     int n;
     cin>>n;
     cout << sqrtBinary(n) << endl;
-
-    cout << precisionSqrt(n,3) << endl;
+    cout.precision(20);
+    cout << precisionSqrt(n,16) << endl;
     return 0;
 }
