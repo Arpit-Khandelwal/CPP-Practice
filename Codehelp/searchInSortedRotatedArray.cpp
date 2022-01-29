@@ -50,45 +50,54 @@ int findPosition(vector<int> &arr, int n, int k)
 */
 
 //my approach
-    int binarySearch(vector<int>& arr, int l, int h, int k)
+int binarySearch(vector<int> &arr, int l, int h, int k)
+{
+    int mid;
+    while (l <= h)
     {
-        int mid;
-        while(l<=h)
-        {
-            mid = l + (h-l)/2;
-            if(arr[mid]<k) l=mid+1;
-            else if(arr[mid]>k) h=mid-1;
-            else return mid;
-        }
-        return -1;
+        mid = l + (h - l) / 2;
+        if (arr[mid] < k)
+            l = mid + 1;
+        else if (arr[mid] > k)
+            h = mid - 1;
+        else
+            return mid;
     }
+    return -1;
+}
 
-    int findPosition(vector<int>& arr, int n, int k)
+int findPosition(vector<int> &arr, int n, int k)
+{
+    // Write your code here.
+    // Return the position of K in ARR else return -1.
+    int l = 0, h = arr.size() - 1, mid = l + (h - l) / 2;
+    ;
+    if (arr[0] < arr[n - 1])
+        return binarySearch(arr, l, h, k);
+
+    while (l <= h)
     {
-        // Write your code here.
-        // Return the position of K in ARR else return -1.
-        int l=0,h=arr.size()-1, mid = l + (h-l)/2;;
-        if(arr[0]<arr[n-1]) return binarySearch(arr,l,h,k);
-        
-        while(l<=h)
+        //add more condition, include about arr[h]
+        if (k > arr[mid])
         {
-        if(k>arr[mid])
+            if (k > arr[l])
+                l = mid + 1;
+            else
+                h = mid - 1;
+        }
+        else if (k < arr[mid])
         {
-            if(k>arr[l]) l=mid+1;
-            else h=mid-1;
+            if (k < arr[l])
+                l = mid + 1;
+            else
+                h = mid - 1;
         }
-        else if(k<arr[mid])
-        {
-            if(k<arr[l]) l = mid+1; 
-            else h=mid-1;
-        }
-        else return l;
-            mid = l + (h-l)/2;
-        }
-        return -1;
-        
+        else
+            return l;
+        mid = l + (h - l) / 2;
     }
-
+    return -1;
+}
 
 void solve()
 {
