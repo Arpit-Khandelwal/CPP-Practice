@@ -34,8 +34,8 @@ void solve()
     */
 
    //xor approach - O(N)
-    int ans = 0;
-    for (int i = 0; i < n;i++)
+    int ans = 0;        //fails in [2,2,2,2,2] because algo assumes arr is strictly [1,n] with no repetition
+    for (int i = 0; i < n;i++) 
         ans  = ans ^ i ^ arr[i];
     cout << "Xor : " << ans<<endl;
 
