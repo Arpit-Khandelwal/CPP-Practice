@@ -22,7 +22,7 @@ void mergeArray(int arr1[], int n, int arr2[], int m)
     */
 
     //gap method - compare elements with gap and swap if arr1[i]<arr1/arr2[i+gap]
-    int gap = ceil(n / 2);
+    int gap = ceil((n + m) / 2);
     while (gap > 0)
     {
         for (int i = 0; i < n; i++)
@@ -37,12 +37,14 @@ void mergeArray(int arr1[], int n, int arr2[], int m)
             {
                 if (arr1[i] > arr2[secondIndex - n])
                     swap(arr1[i], arr2[secondIndex - n]);
-            }
+            } //add logic for similar type of sorting in arr2
             else
                 break;
         }
         gap /= 2;
     }
+    sort(arr1, arr1 + n);
+    sort(arr2, arr2 + m);
 }
 
 void solve()
@@ -57,6 +59,7 @@ void solve()
         cin >> arr2[j];
 
     mergeArray(arr1, n, arr2, m);
+
     for (int i = 0; i < n; i++)
         cout << arr1[i] << " ";
     for (int j = 0; j < m; j++)
