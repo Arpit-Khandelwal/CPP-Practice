@@ -14,7 +14,7 @@ bool isValidSudoku(vector<vector<char>> &board)
 
             int num = board[i][j] - '0';
 
-            int boxNum = 3 * (i / 3) + j / 3;
+            int boxNum = 3 * (i / 3) + j / 3;   //get box number of current box(1-9)
             if (rows[i].count(num) || columns[j].count(num) || boxes[boxNum].count(num))
                 return false;
 
