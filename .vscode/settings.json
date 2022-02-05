@@ -2,7 +2,13 @@
     "files.associations": {
         "iostream": "cpp",
         "vector": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     },
     "files.exclude": {
         "**/*.exe": true,
