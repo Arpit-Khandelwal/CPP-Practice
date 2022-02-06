@@ -19,7 +19,7 @@ int reverse(int x)
 
     while (x > 0)
     {
-        s += (x % 10) + 48;
+        s += (x % 10) + 48;     //s reversed
         x /= 10;
     }
 
