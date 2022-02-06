@@ -3,9 +3,10 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-int reverse(int x)
+    int reverse(int x)
 {
-
+    //int to reversed string to int
+    /*
     if (x < pow(2, -31) || x >= pow(2, 31))
         return 0;
 
@@ -30,7 +31,27 @@ int reverse(int x)
         rnum = rnum * 10 + (s[i] - 48);
     }
     return rnum*((isNeg)?-1:1);
+    */
+
+   //simple rnum logic
+        int dig,rnum=0;
+    while(x!=0)
+    {
+        dig = x % 10;
+
+        if(rnum > INT_MAX/10 || (rnum >= INT_MAX/10 && dig>7))
+            return 0;
+        
+        if(rnum <INT_MIN/10 || (rnum==INT_MIN/10 && dig<-8))
+            return 0;
+
+        rnum = rnum * 10 + dig;
+        x /= 10;
+    }
+    
+    return rnum;
 }
+
 
 void solve()
 {
