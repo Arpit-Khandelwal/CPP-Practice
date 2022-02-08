@@ -3,31 +3,28 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-long long int inversionCount(long long arr[], long long N)
+vector<vector<int>> merge(vector<vector<int>> &intervals)
 {
-    // Your Code Here
-    long long int count = 0;
-    for (long long int i = 0; i < N; i++)
-    {
-        for (long long int j = i + 1; j < N; j++)
-        {   //bruteforce logic
-            if (arr[i] > arr[j])
-                count++;
-        }
-    }
-    return count;
+    
 }
 
 void solve()
 {
-    long long int n;
-    cin >> n;
-    long long int arr[n];
+    int n;
+    vector<vector<int>> intervals;
+    for (int i = 0; i < n; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        intervals.push_back({x, y});
+    }
 
-    for (long long int i = 0; i < n; i++)
-        cin >> arr[i];
+    vector<vector<int>> ans = merge(intervals);
 
-    cout << inversionCount(arr, n) << endl;
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i][0] << " " << ans[i][1] << endl;
+    }
 }
 
 int main()
