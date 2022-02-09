@@ -21,22 +21,15 @@ vector<vector<int>> merge(vector<vector<int>> &intervals)
     int n = intervals.size();
     vector<vector<int>> ans;
 
-    // ans.push_back({
-    //                 min(intervals[0][0], intervals[1][0]),
-    //                 max(intervals[0][1], intervals[1][1])
-    //                 });
-
-    for (int i = 0,j=1; j < n - 1;j++)
+    for (auto interval : intervals)
     {
-        if(ans[i][1]>=intervals[j][0])
+        if(ans.empty() || ans.back()[1]<interval[0])
         {
-            ans[i][0] = min(ans[i][0], intervals[j][0]);
-            ans[i][1] = max(ans[i][1], intervals[j][1]);
+            ans.push_back(interval);
         }
         else
         {
-            ans.push_back(intervals[j]);
-            i++;
+            ans.back()[1] = max(ans.back()[1], interval[1]);
         }
     }
 
