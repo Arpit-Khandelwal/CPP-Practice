@@ -68,22 +68,29 @@ void sortColors(vector<int> &nums)
 
 */
     //one pass in place - from leetcode discuss
+
+    //take 3 pointers n0, n1, n2 - which denote last position of 0, 1, 2 in array
+
     int n0 = -1, n1 = -1, n2 = -1;
     for (int i = 0; i < nums.size(); ++i)
     {
         if (nums[i] == 0)
         {
+            //for each encounter of 0, push last occourence of 1 and 2 forward
+            //and push 0 into latest position
             nums[++n2] = 2;
             nums[++n1] = 1;
             nums[++n0] = 0;
         }
         else if (nums[i] == 1)
         {
+            //for each encounter of 1, push last pos of 1 and 2 foward, 0's need not be modified
             nums[++n2] = 2;
             nums[++n1] = 1;
         }
         else if (nums[i] == 2)
         {
+            //each encounter of 2, push last pos of 2 forward
             nums[++n2] = 2;
         }
     }
