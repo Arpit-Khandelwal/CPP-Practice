@@ -69,7 +69,7 @@ void sortColors(vector<int> &nums)
 */
     //one pass in place - from leetcode discuss
     int n0 = -1, n1 = -1, n2 = -1;
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < nums.size(); ++i)
     {
         if (nums[i] == 0)
         {
@@ -86,5 +86,26 @@ void sortColors(vector<int> &nums)
         {
             nums[++n2] = 2;
         }
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+
+    vector<int> nums;
+    for (int o = 0; o < n;o++) 
+    {
+        int x;
+        cin >> x;
+        nums.push_back(x);
+    }
+
+    sortColors(nums);
+
+    for (int o = 0; o < n;o++) 
+    {
+        cout << nums[o] << " ";
     }
 }
