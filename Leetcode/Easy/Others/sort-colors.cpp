@@ -68,6 +68,7 @@ void sortColors(vector<int> &nums)
 
 */
     //one pass in place - from leetcode discuss
+    //0ms runtime
 
     //take 3 pointers n0, n1, n2 - which denote last position of 0, 1, 2 in array
 
