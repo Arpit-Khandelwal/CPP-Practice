@@ -15,7 +15,7 @@ void sortColors(vector<int> &nums)
     }
 
     //using counts - 0 runtime
-    int count0 = 0, count1 = 0, count2=0;
+    int count0 = 0, count1 = 0, count2 = 0;
 
     for (auto i : nums)
     {
@@ -23,7 +23,7 @@ void sortColors(vector<int> &nums)
             count1++;
         if (!i)
             count0++;
-        if(i==2)
+        if (i == 2)
             count2++;
     }
     for (int i = 0; i < nums.size(); i++)
@@ -32,17 +32,36 @@ void sortColors(vector<int> &nums)
         {
             nums[i] = 0;
             count0--;
-        
         }
-        else if(count1>0)
+        else if (count1 > 0)
         {
             nums[i] = 1;
             count1--;
         }
-        else if(count2>0)
+        else if (count2 > 0)
         {
             nums[i] = 2;
             count2--;
         }
     }
+
+    //using count alternate method - 4ms runtime
+    int count0 = 0, count1 = 0, count2 = 0;
+
+    for (auto i : nums)
+    {
+        if (i == 1)
+            count1++;
+        if (!i)
+            count0++;
+        if (i == 2)
+            count2++;
+    }
+    int i = 0;
+    for (; i < count0; i++)
+        nums[i] = 0;
+    for (; i < count1 + count0; i++)
+        nums[i] = 1;
+    for (; i < nums.size(); i++)
+        nums[i] = 2;
 }
