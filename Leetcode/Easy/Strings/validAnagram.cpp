@@ -27,7 +27,7 @@ bool isAnagram(string s, string t)
 
     //make int[26] array of alphabets
     //add 1 for each char of s and substract 1 for same char in t
-
+    
     int chars[26];
 
     for (int i = 0; i < 26;i++) chars[i]=0;
@@ -35,6 +35,31 @@ bool isAnagram(string s, string t)
     for (int i = 0; i < t.length();i++) chars[t[i] - 'a']--;
 
     for (int i = 0; i < 26;i++) if(chars[i]!=0) return false;
+
+    return true;
+
+    //same can be done with hash table - best runtime and memory
+
+    unordered_map<char, int> freq;
+
+    for (int i = 0; i < 26;i++) freq[i+'a']=0;
+
+    for (int i = 0; i < s.length(); i++)
+    {
+        freq[s[i]]++;
+        freq[t[i]]--;
+    }
+
+    for (int i = 0; i < 26;i++) 
+    {
+        if(freq[i+'a']!=0) return false;
+    }
+
+    //alt loop
+    for(auto i:freq)
+    {
+        if(i.second!=0) return false;
+    }
 
     return true;
 }
