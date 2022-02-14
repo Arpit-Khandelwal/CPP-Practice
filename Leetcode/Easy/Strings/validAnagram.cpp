@@ -5,22 +5,38 @@ using namespace std;
 
 bool isAnagram(string s, string t)
 {
-    if(s.length()!=t.length())
+    if (s.length() != t.length())
         return false;
-    //sort s and t and check if they are same
+    
+    // sort s and t and check if they are same
     sort(s.begin(), s.end());
     sort(t.begin(), t.end());
-try{
-    for (int i = 0; i < s.length();i++)
+    try
     {
-        if(s[i]!=t[i])
-            return false;
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (s[i] != t[i])
+                return false;
+        }
+        return true;
     }
+    catch (exception e)
+    {
+        return false;
+    }
+
+    //make int[26] array of alphabets
+    //add 1 for each char of s and substract 1 for same char in t
+
+    int chars[26];
+
+    for (int i = 0; i < 26;i++) chars[i]=0;
+    for (int i = 0; i < s.length();i++) chars[s[i] - 'a']++;
+    for (int i = 0; i < t.length();i++) chars[t[i] - 'a']--;
+
+    for (int i = 0; i < 26;i++) if(chars[i]!=0) return false;
+
     return true;
-}
-catch(exception e){
-    return false;
-}
 }
 
 void solve()
@@ -28,7 +44,7 @@ void solve()
     string s, t;
     cin >> s >> t;
 
-    cout <<( isAnagram(s, t)?"true":"false") << endl;
+    cout << (isAnagram(s, t) ? "true" : "false") << endl;
 }
 
 int main()
