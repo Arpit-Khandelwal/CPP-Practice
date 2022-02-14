@@ -5,7 +5,20 @@ using namespace std;
 
 bool isAnagram(string s, string t)
 {
-    
+    //sort s and t and check if they are same
+    sort(s.begin(), s.end());
+    sort(t.begin(), t.end());
+try{
+    for (int i = 0; i < s.length();i++)
+    {
+        if(s[i]!=t[i])
+            return false;
+    }
+    return true;
+}
+catch(exception e){
+    return false;
+}
 }
 
 void solve()
@@ -13,7 +26,7 @@ void solve()
     string s, t;
     cin >> s >> t;
 
-    cout << isAnagram(s, t) << endl;
+    cout <<( isAnagram(s, t)?"true":"false") << endl;
 }
 
 int main()
