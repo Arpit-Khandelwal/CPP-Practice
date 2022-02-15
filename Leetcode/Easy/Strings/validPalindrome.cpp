@@ -6,6 +6,32 @@ using namespace std;
 
 bool isPalindrome(string s)
 {
+    //convert all uppercase to lowercase
+    //remove all non alphanumeric chars
+    string newstr="";
+
+    for (int i = 0; i < s.length();i++)
+    {
+        char ch = s[i];
+
+        if(ch>=65 && ch<=90) 
+        {
+            newstr += (ch+22);
+        }
+
+        else if(ch >=97 && ch<=122)
+            newstr += ch;
+    }
+
+    //newstr is lowercase and filtered from all non alphanumeric characters
+    //check if newstr is palindrome
+    int n = newstr.length();
+    for (int i = 0; i < n/2;i++)
+    {
+        if(newstr[i]!=newstr[n-i-1])
+            return false;
+    }
+    return true;
 }
 
 void solve()
