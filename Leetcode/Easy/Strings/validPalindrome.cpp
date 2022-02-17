@@ -6,6 +6,9 @@ using namespace std;
 
 bool isPalindrome(string s)
 {
+    
+    
+/*
     // convert all uppercase to lowercase
     // remove all non alphanumeric chars
     string newstr = "";
@@ -34,6 +37,19 @@ bool isPalindrome(string s)
     {
         if (newstr[i] != newstr[n - i - 1])
             return false;
+    }
+    return true;
+*/
+
+    //two pointer
+
+    int start =0, end = s.length()-1;
+
+    while(start<end)
+    {
+        if(!isalnum(s[start])) start++;
+        else if(!isalnum(s[end])) end--;
+        else if(s[start++]!=s[end--]) return false;
     }
     return true;
 }
