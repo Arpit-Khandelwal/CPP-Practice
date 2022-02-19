@@ -8,39 +8,41 @@ int myAtoi(string s)
     int l = s.length();
     int ans = 0;
     bool isNegative = false;
+    int i = 0;
 
-    for (int i = 0; i < l; i++)
+    while (s[i] == ' ')
     {
-        if (s[i] == ' ')
-            continue;
+        i++;
+    }
+
+    for (; i < l; i++)
+    {
 
         if (s[i] == '-')
         {
             isNegative = true;
-            continue;
         }
 
-        if (s[i] == '+')
+        else if (s[i] == '+')
             continue;
-        try
+
+        else if (s[i] >= '0' && s[i] <= '9')
         {
-            if (s[i] >= '0' && s[i] <= '9')
+            int x = (s[i] - '0');
+            if (ans * 10 > INT_MAX)
             {
-                ans = ans * 10 + (s[i] - '0');
-                continue;
+                if (isNegative)
+                    return INT_MIN;
+                else
+                    return INT_MAX;
             }
+            ans = ans * 10 + x;
+        }
 
-            else
-                break;
-        }
-        catch (exception e)
-        {
-            if (isNegative)
-                return INT_MIN;
-            else
-                return INT_MAX;
-        }
+        else
+            break;
     }
+
     return ans * ((isNegative) ? -1 : 1);
 }
 
