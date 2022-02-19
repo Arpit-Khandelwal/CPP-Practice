@@ -43,8 +43,8 @@ void mergeArray(int arr1[], int n, int arr2[], int m)
         }
         gap /= 2;
     }
-    sort(arr1, arr1 + n);
-    sort(arr2, arr2 + m);
+    sort(arr1, arr1 + n);   //need to eliminate this
+    sort(arr2, arr2 + m);   //need to eliminate this
 }
 
 void solve()
