@@ -5,6 +5,7 @@ using namespace std;
 
 int myAtoi(string s)
 {
+    /* draft 1
     int l = s.length();
     long ans = 0;
     bool isNegative = false;
@@ -37,6 +38,30 @@ int myAtoi(string s)
     }
 
     return ans * ((isNegative) ? -1 : 1);
+*/
+
+    //runtime 0ms
+    long ans=0;
+        int n=s.length();
+        int i=0;
+        while(i<n && s[i]==' ')i++;
+        int sign = 1;
+        if(i<n)
+        {
+            if(s[i]=='-')sign=-1,i++;
+            else if(s[i]=='+')i++;
+            
+            while(i<n && isdigit(s[i]))
+            {
+                ans = ans*10 + (s[i]-'0');
+                i++;
+                if(ans > INT_MAX && sign == -1)return INT_MIN;
+                if(ans > INT_MAX && sign ==1)return INT_MAX;
+            }
+        }
+        ans*=sign;
+        return ans;
+    }
 }
 
 void solve()
