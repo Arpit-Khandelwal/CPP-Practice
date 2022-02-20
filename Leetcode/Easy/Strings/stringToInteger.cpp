@@ -6,11 +6,11 @@ using namespace std;
 int myAtoi(string s)
 {
     int l = s.length();
-    int ans = 0;
+    long ans = 0;
     bool isNegative = false;
     int i = 0;
 
-    while (s[i] == ' ')
+    while (s[i] == ' ' && i < l)
     {
         i++;
     }
@@ -18,27 +18,20 @@ int myAtoi(string s)
     for (; i < l; i++)
     {
 
-        if (s[i] == '-')
+        if (s[i] == '+' || s[i] == ' ' || s[i] == '-')
         {
-            isNegative = true;
-        }
-
-        else if (s[i] == '+')
+            if (s[i] == '-')
+                isNegative = true;
             continue;
-
+        }
         else if (s[i] >= '0' && s[i] <= '9')
         {
-            int x = (s[i] - '0');
-            if (ans * 10 > INT_MAX)
+            if (ans > INT_MAX)
             {
-                if (isNegative)
-                    return INT_MIN;
-                else
-                    return INT_MAX;
+                return (isNegative) ? INT_MIN : INT_MAX;
             }
-            ans = ans * 10 + x;
+            ans = ans * 10 + (s[i] - '0');
         }
-
         else
             break;
     }
@@ -48,9 +41,9 @@ int myAtoi(string s)
 
 void solve()
 {
-    string s;
+    char s[201];
 
-    cin >> s;
+    cin.getline(s, 201);
 
     cout << myAtoi(s) << endl;
 }
