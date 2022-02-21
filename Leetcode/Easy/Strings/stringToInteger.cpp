@@ -61,7 +61,7 @@ int myAtoi(string s)
         }
         ans*=sign;
         return ans;
-    }
+    
 }
 
 void solve()
