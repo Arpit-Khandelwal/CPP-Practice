@@ -13,6 +13,7 @@ int main() {
     cin.tie(NULL);
     cout.tie(NULL);
 
-    cout << (42 >>(int) (log(5)/log(2)));
+    cout << 1<<100<<endl; // 1100
+    cout << (1 << 100); //overflow
     return 0;
 }
