@@ -22,17 +22,23 @@ string solve()
     }
     */
 
-    if(k==2)
-        return ((sum % 3 == 0) ? "YES" : "NO");
-    else if(k==3)
-    {
-        sum *= 2;
-        return ((sum % 3 == 0) ? "YES" : "NO");
-    }
+    if(k==2) ;
+    else if(k==3) sum *= 2;
+
     else
     {
-       
+        int cycles = (k-3) / 4;
+        int remainder = (k-3) % 4;
+
+        sum += cycles * (2 + 4 + 6 + 8);
+        int sum1 = d0 + d1;
+        while(k-->0)
+        {            
+            sum1 *= 2;
+            sum += sum1 % 10;
+        }
     }
+    return ((sum % 3 == 0) ? "YES" : "NO");
 }
 
 int main()
