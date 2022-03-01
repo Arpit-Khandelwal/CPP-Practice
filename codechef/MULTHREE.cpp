@@ -22,22 +22,20 @@ string solve()
     }
     */
 
-    if(k==2) ;
-    else if(k==3) sum *= 2;
+    ll int cycles = (k - 3) / 4;
+    int remainder = (k - 3) % 4;
 
-    else
-    {
-        int cycles = (k-3) / 4;
-        int remainder = (k-3) % 4;
-
+    if (cycles > 0)
         sum += cycles * (2 + 4 + 6 + 8);
-        int sum1 = d0 + d1;
-        while(k-->0)
-        {            
-            sum1 *= 2;
-            sum += sum1 % 10;
-        }
+    ll int sum1 = (d0 + d1);
+    while (remainder-- >= 0)
+    {
+        sum1 *= 2;
+        sum1 %= 10;
+        sum += sum1;
     }
+
+    // cout << sum<<" ";
     return ((sum % 3 == 0) ? "YES" : "NO");
 }
 
