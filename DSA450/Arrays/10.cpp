@@ -64,8 +64,6 @@ int minJumps(int arr[], int n)
         count++;
     }
     return count;
-
-    return count;
 }
 
 void solve()
