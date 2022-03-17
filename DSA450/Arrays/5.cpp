@@ -64,6 +64,7 @@ void solve()
     //primitive
     //store all positive elements in one Vector 
     //and all negative elements in another then push all to the original array
+    //ordering is intact
 
         vector<int> a;
         vector<int> b;
