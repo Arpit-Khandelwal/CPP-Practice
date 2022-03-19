@@ -33,20 +33,21 @@ void solve()
             l++;
     }
     */
-/*
-    //logic - 21Jan22, using two pointers to track positive and negative elements, same approach as above
-    for (int i = 0, j = n - 1; i <= j;)
-    {
-        while (arr[i] < 0) i++;
-        while (arr[j] > 0) j--;
 
-        if(i<=j){
-        swap(arr[i], arr[j]);
-            i++;
-            j--;
+    /*
+        //logic - 21Jan22, using two pointers to track positive and negative elements, same approach as above
+        for (int i = 0, j = n - 1; i <= j;)
+        {
+            while (arr[i] < 0) i++;
+            while (arr[j] > 0) j--;
+
+            if(i<=j){
+            swap(arr[i], arr[j]);
+                i++;
+                j--;
+            }
         }
-    }
-*/
+    */
 
     //less precise logic - swap all negative array elements from starting of array
     int j=0;
@@ -57,6 +58,33 @@ void solve()
 
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
+
+    
+    /* 
+    //primitive
+    //store all positive elements in one Vector 
+    //and all negative elements in another then push all to the original array
+    //ordering is intact
+
+        vector<int> a;
+        vector<int> b;
+        
+        for(int i=0;i<n;i++) 
+        {
+            if(arr[i]<0) 
+            {
+                a.push_back(arr[i]);
+                
+            }
+            else
+            b.push_back(arr[i]);
+            
+        }
+        
+        int count=0;
+        for(int i=0;i<b.size();i++) arr[i]=b[i];
+        for(int i=b.size();i<n;i++) arr[i]=a[count++];
+    */
 }
 
 int main()
