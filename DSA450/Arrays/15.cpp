@@ -7,15 +7,28 @@ void nextPermutation(vector<int> &nums)
 {
     int n = nums.size();
 
-    for (int i = n - 1; i > 0; i--)
+    int i = n - 2;
+
+    while (i >= 0 && nums[i + 1] <= nums[i]) i--;
+
+    if (i >= 0)
     {
-        if (nums[i - 1] < nums[i])
-        {
-            swap(nums[i - 1], nums[i]);
-            return;
-        }
+        int j = n - 1;
+
+        while (nums[j] <= nums[i]) j--;
+
+        swap(nums[i], nums[j]);
     }
-    sort(nums.begin(), nums.end());
+    
+    int l = i+1, h = nums.size() - 1;
+
+    while (l < h)
+    {
+        swap(nums[l], nums[h]);
+        l++;
+        h--;
+    }
+
     return;
 }
 
@@ -34,7 +47,7 @@ void solve()
 
     nextPermutation(nums);
 
-    for(auto i : nums)
+    for (auto i : nums)
         cout << i;
 
     cout << endl;
