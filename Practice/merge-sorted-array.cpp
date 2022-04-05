@@ -26,10 +26,26 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
     nums1 = arr;
     //for (i = 0; i < m + n;i++)
     //  cout << nums1[i] << " ";
-}
+
 
 /*Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Sorted Array.
 Memory Usage: 9.2 MB, less than 27.89% of C++ online submissions for Merge Sorted Array.*/
+
+//Another method
+/*Runtime: 0 ms, faster than 100.00% of C++ online submissions for Merge Sorted Array.
+Memory Usage: 9.1 MB, less than 72.86% of C++ online submissions for Merge Sorted Array.*/
+int i=m-1, j=n-1, insertAtIndex=m+n-1;
+        
+        while(j>=0)
+        {
+            if(i>=0 && nums1[i]>nums2[j]) 
+                nums1[insertAtIndex] = nums1[i--];
+            else 
+                nums1[insertAtIndex] = nums2[j--];
+            insertAtIndex--;
+        }
+}
+
 
 void solve()
 {
