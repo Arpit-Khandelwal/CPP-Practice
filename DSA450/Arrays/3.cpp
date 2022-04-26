@@ -20,20 +20,44 @@ int findSmallest(int *arr, int l, int r, int k)
     return *itr;
     */
 
-   /*using map
-    map<int, int> count;
-    for (int i = l; i <= r;i++)
-        count[arr[i]]++;        //O(nlogn)
-    
-    int freq = 0;
-    for(auto i:count)
-    {
-        freq += i.second;
-        if(freq>=k)
-            return i.first;
-    }
-    return -1;
+    /*using map
+     map<int, int> count;
+     for (int i = l; i <= r;i++)
+         count[arr[i]]++;        //O(nlogn)
+
+     int freq = 0;
+     for(auto i:count)
+     {
+         freq += i.second;
+         if(freq>=k)
+             return i.first;
+     }
+     return -1;
+     */
+    // code here
+    /*
+    sort(arr,arr+r-l+1);
+
+    return arr[k-1];
     */
+
+    int n = r-l + 1;
+    for (int i = 0; i < n; i++)
+    {
+        int mini = arr[i], pos = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if(mini>arr[j])
+            {
+                mini = arr[j];
+                pos = j;
+            }
+        }
+        swap(arr[i], arr[pos]);
+        if (i + 1 == k)
+            return arr[i];
+    }
+    //for(int i=0;i<n;i++) cout<<arr[i]<<" ";
 }
 
 void solve()
