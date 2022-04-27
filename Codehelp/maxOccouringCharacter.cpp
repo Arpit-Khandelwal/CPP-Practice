@@ -1,20 +1,21 @@
-char getMaxOccouringCharacter(string str)
+char getMaxOccuringChar(string str)
 {
-    unordered_map<char,int> count;
-
-    for(char i:str) count[i]++;
-
-    int maxi=0;
+    unordered_map<char, int> count;
     char ans;
 
-    for(auto i:count)
+    for (char i : str)
+        count[i]++;
+
+    int maxi = 0;
+    for (auto i : count)
     {
-        if(i.second>maxi)
+        if (i.second > maxi)
         {
             maxi = i.second;
-            ans=i.first;
+            ans = i.first;
         }
-
-        if(i.second==maxi) ans = min(ans,i.first);
+        if (i.second == maxi)
+            ans = min(i.first, ans);
     }
+    return ans;
 }
