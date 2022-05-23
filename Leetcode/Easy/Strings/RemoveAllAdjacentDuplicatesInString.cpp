@@ -1,4 +1,4 @@
-
+/*
 int findAdjacentDuplicate(string s)
 {
     int l = s.length();
@@ -12,7 +12,7 @@ int findAdjacentDuplicate(string s)
 }
 string removeDuplicates(string s)
 {
-
+    
     int i = findAdjacentDuplicate(s);
     while (i != -1) //TLE
     {
@@ -21,4 +21,18 @@ string removeDuplicates(string s)
     }
 
     return s;
+    */
+string removeDuplicates(string s)
+{
+    //using stack kinda approach
+    string ans = "";
+        
+        for(char ch:s)
+        {
+            if(ans.size()>0 && ch == ans.back()) ans.pop_back();
+            else ans.push_back(ch);
+        }
+        
+        return ans;
 }
+
