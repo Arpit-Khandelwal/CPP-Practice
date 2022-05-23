@@ -39,7 +39,23 @@ vector<string> topKFrequent(vector<string> &words, int k)
 
 void solve()
 {
-    
+    vector<string> s;
+    int n;
+    cin >> n;
+    while(n--)
+    {
+        string str;
+        cin >> str;
+        s.push_back(str);
+    }
+
+    int k;
+    cin >> k;
+
+    vector<string> ans = topKFrequent(s, k);
+    for(auto i:ans) cout<<i<<" ";
+
+    cout<<endl;
 }
 
 int main() {
