@@ -44,6 +44,19 @@ int i=m-1, j=n-1, insertAtIndex=m+n-1;
                 nums1[insertAtIndex] = nums2[j--];
             insertAtIndex--;
         }
+
+
+//another implementation of above method 29/4/22
+int insertedAt = n+m;
+        n--;m--;
+        while(n>=0 && m>=0)
+        {
+            if(nums1[m]>nums2[n]) nums1[--insertedAt] = nums1[m--];
+            else nums1[--insertedAt] = nums2[n--];
+        }
+        
+        while(n>=0) nums1[--insertedAt] = nums2[n--];
+        while(m>=0) nums1[--insertedAt] = nums1[m--];
 }
 
 
