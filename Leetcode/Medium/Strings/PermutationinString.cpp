@@ -98,3 +98,37 @@ bool equalFreq(vector<int> a, vector<int> b)
         return false;
         
     }
+
+
+    //best  method - 4ms runtime, 7.3MB mem
+    bool checkEqualFreq(int a[], int b[])
+    {
+        for(int i=0;i<26;i++)
+            if(a[i]!=b[i]) return false;
+        return true;
+    }
+    bool checkInclusion(string s1, string s2) {
+        
+        int l1=s1.length();
+        int l2=s2.length();
+        int freq1[26]={0};
+        for(char c:s1) freq1[c-'a']++;
+        
+        int freq2[26]={0};
+        for(int i=0;i<l1 && i<l2;i++)
+        {
+            freq2[s2[i]-'a']++;
+        }
+        
+        if(checkEqualFreq(freq1,freq2)) return true;
+        
+        for(int i=l1;i<l2;i++)
+        {
+            freq2[s2[i-l1]-'a']--;
+            freq2[s2[i]-'a']++;
+            if(checkEqualFreq(freq1,freq2)) return true;
+        }
+        
+        return false;
+        
+    }
