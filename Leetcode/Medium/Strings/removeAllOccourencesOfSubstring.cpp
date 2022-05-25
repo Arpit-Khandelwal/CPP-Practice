@@ -11,7 +11,7 @@ string removeOccurrences(string s, string part)
     while (s.find(part) != string::npos)
     {
         s = s.substr(0, s.find(part)) + s.substr(s.find(part) + part.length()); //4ms, 8MB
-        s.erase(s.find(part),part.length()) //12ms, 6.6MB
+        s.erase(s.find(part), part.length());                                   // 12ms, 6.6MB
     }
     return s;
 }
