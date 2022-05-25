@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define mod 1000000007
+
 void permute(string s, string answer, vector<string> &permutations) //to find permutations
 {
     if (s.length() == 0)
@@ -68,7 +73,7 @@ bool checkInclusion(string s1, string s2)
     return false;
 }
 
-//final method
+//final method 200+ms runtime
 bool equalFreq(vector<int> a, vector<int> b)
     {
         for(int i=0;i<26;i++) if(a[i]!=b[i]) return false;
@@ -132,3 +137,22 @@ bool equalFreq(vector<int> a, vector<int> b)
         return false;
         
     }
+
+void solve()
+{
+    
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    ll test=1;
+    cin>>test;
+    while(test--)
+    {
+        solve();
+    }
+    return 0;
+}
