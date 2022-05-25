@@ -3,6 +3,7 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
+/*
 void permute(string s, string answer, vector<string> &permutations) //to find permutations
 {
     if (s.length() == 0)
@@ -103,7 +104,7 @@ bool equalFreq(vector<int> a, vector<int> b)
         return false;
         
     }
-
+*/
 
     //best  method - 4ms runtime, 7.3MB mem
     bool checkEqualFreq(int a[], int b[])
@@ -140,7 +141,9 @@ bool equalFreq(vector<int> a, vector<int> b)
 
 void solve()
 {
-    
+    string a, b;
+    cin >> a >> b;
+    cout << (checkInclusion(a, b) ? "YES" : "NO") << endl;
 }
 
 int main() {
