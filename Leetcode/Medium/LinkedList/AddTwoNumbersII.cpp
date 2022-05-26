@@ -3,6 +3,7 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
+//  Definition for singly-linked list.
 struct ListNode
 {
     int val;
@@ -11,6 +12,7 @@ struct ListNode
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+
 int findSize(ListNode *h)
 {
     int n = 0;
@@ -59,7 +61,7 @@ ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
         sum = p1->val + p2->val + carry;
         if (sum > 9)
         {
-            carry = sum / 10;
+            carry = 1;
             sum = sum % 10;
         }
         else
@@ -69,17 +71,61 @@ ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
         p1 = p1->next;
         p2 = p2->next;
     }
-    
+    //         if(carry>0)
+    //         {
+    //             if(buffer>0)
+    //             {
+    //                 sum = (carry+p1->val);
+    //                 p1=p1->next;
+    //             }
+    //             else if(buffer<0)
+    //             {
+    //                 sum = (p2->val + carry);
+    //                 p2 = p2->next;
+    //             }
+    //             else sum = (carry);
+
+    //             if(sum>9)
+    //             {
+    //                 carry = sum/10;
+    //                 sum = sum%10;
+    //             }
+    //             st.push
+    //         }
+
     while (p1)
     {
-        st.push(p1->val);
+        sum = p1->val + carry;
+        if (sum > 9)
+        {
+            carry = 1;
+            sum = sum % 10;
+        }
+        else
+            carry = 0;
+
+        st.push(sum);
         p1 = p1->next;
     }
+
     while (p2)
     {
-        st.push(p2->val);
+        sum = p2->val + carry;
+        if (sum > 9)
+        {
+            carry = 1;
+            sum = sum % 10;
+        }
+        else
+            carry = 0;
+
+        st.push(sum);
         p2 = p2->next;
     }
+
+    if (carry > 0)
+        st.push(carry);
+
     ListNode *ans = new ListNode();
     ListNode *p = ans;
     while (!st.empty())
@@ -87,10 +133,11 @@ ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
         ans->val = st.top();
         st.pop();
 
-        if(!st.empty()) ans->next = new ListNode();
+        if (!st.empty())
+            ans->next = new ListNode();
         ans = ans->next;
     }
-    return reverseList(p);
+    return (p);
 }
 
 void solve()
