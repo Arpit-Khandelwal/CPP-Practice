@@ -5,22 +5,41 @@ using namespace std;
 
 int lengthOfLongestSubstring(string s)
 {
-    //method 2 - github copilot
-    unordered_map<char, int> m;
-    int max_len = 0, start = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-        if (m.find(s[i]) != m.end())
-        {
-            max_len = max(max_len, i - start);
-            start = max(start, m[s[i]] + 1);
-        }
-        m[s[i]] = i;
-    }
-    max_len = max(max_len, (int)s.size() - start);
-    return max_len;
 
+    //method 3 - make dictionary of chars and their last index
+
+    vector<int> dict(256,-1);
+    int maxi = 0, start = -1;
+
+    for (int i = 0;i<s.length();i++)
+    {
+        if(dict[s[i]]>start)
+            start = dict[s[i]];
+        
+        dict[s[i]] = i;
+
+        maxi = max(maxi, i - start);
+    }
+
+    return maxi;
     /*
+        // method 2 - github copilot
+        unordered_map<char, int> m;
+        int max_len = 0, start = 0;
+        for (int i = 0; i < s.size(); i++)
+        {
+            if (m.find(s[i]) != m.end())
+            {
+                max_len = max(max_len, i - start);
+                start = max(start, m[s[i]] + 1);
+            }
+            m[s[i]] = i;
+        }
+        max_len = max(max_len, (int)s.size() - start);
+        return max_len;
+    */
+   
+    /* //method 1 - my solution
     int l = 0, h = 0, maxi = -1;
 
     int n = s.length();
