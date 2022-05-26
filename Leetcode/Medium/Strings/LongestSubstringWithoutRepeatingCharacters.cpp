@@ -38,15 +38,15 @@ int lengthOfLongestSubstring(string s)
         max_len = max(max_len, (int)s.size() - start);
         return max_len;
     */
-   
+
     /* //method 1 - my solution
-    int l = 0, h = 0, maxi = -1;
+    int l = 0, h = 0, maxi = 0;
 
     int n = s.length();
 
     unordered_set<char> set;
     //Runtime: 1445 ms, faster than 5.00% Memory Usage: 149.2 MB, less than 7.14%     
-    while (l <= h && h < n - 1)
+    while (l <= h && h < n)
     {
         if (set.find(s[h]) != set.end())
         {
