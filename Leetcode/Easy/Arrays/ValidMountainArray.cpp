@@ -6,6 +6,37 @@ using namespace std;
 bool validMountainArray(vector<int> &arr)
 {
 
+    // method 2
+    int i = 0, n = arr.size();
+
+    if (n < 3)
+        return false;
+    while (arr[i] < arr[i + 1])
+    {
+        // up = true;
+        i++;
+        if (i == n - 1)
+            return false;
+    }
+    if (i == 0)
+        return false;
+    cout << i;
+    while (arr[i] > arr[i + 1])
+    {
+        // down = true;
+        i++;
+        if (i == n - 1)
+            break;
+    }
+
+    // cout<<up<<" "<<down;
+    if (i != n - 1)
+        return false;
+
+    return true;
+
+    //method 1
+
     bool up = false, down = false;
 
     int i = 0, n = arr.size();
@@ -47,7 +78,7 @@ void solve()
         arr.push_back(x);
     }
 
-    cout << validMountainArray(arr)<<endl;
+    cout << validMountainArray(arr) << endl;
 }
 
 int main()
