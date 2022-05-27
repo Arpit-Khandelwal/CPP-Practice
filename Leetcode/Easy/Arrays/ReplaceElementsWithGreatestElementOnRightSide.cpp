@@ -5,8 +5,17 @@ using namespace std;
 
 vector<int> replaceElements(vector<int> &arr)
 {
+
+    int n = arr.size(), temp = -1;
+    for (int i = n - 1; i >= 0; i--)
+    {
+        temp = max(temp, exchange(arr[i], temp)); //exchange(arr[i], temp) returns arr[i] and modifies arr[i]=temp
+    }
+    return arr;
+
+    /*
     //Runtime: 1101 ms, faster than 13.51%
-    //Memory Usage: 14.4 MB, less than 98.99% 
+    //Memory Usage: 14.4 MB, less than 98.99%
     int maxi, n = arr.size();
 
     if (n == 1)
@@ -23,6 +32,7 @@ vector<int> replaceElements(vector<int> &arr)
     }
     arr[n - 1] = -1;
     return arr;
+    */
 }
 
 void solve()
