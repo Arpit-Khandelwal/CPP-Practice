@@ -6,6 +6,14 @@ using namespace std;
 bool validMountainArray(vector<int> &arr)
 {
 
+    //method 3
+     int i=0, n=arr.size(), j = n-1;
+        
+        while(i+1 <n && arr[i]<arr[i+1]) i++;
+        while(j>0 && arr[j]<arr[j-1]) j--;
+        
+        return (i>0 && j<n-1 && i==j);
+
     // method 2
     int i = 0, n = arr.size();
 
