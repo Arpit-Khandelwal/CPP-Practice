@@ -30,8 +30,29 @@ vector<int> spiralOrder(vector<vector<int>> &matrix)
 
 int main()
 {
-    vector<vector<int>> matrix = { {1,2,3},{4,5,6},{7,8,9} };
+    vector<vector<int>> matrix;
+
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++)
+    {
+        vector<int> row;
+        for (int j = 0; j < n; j++)
+        {
+            int x;
+            cin >> x;
+            row.push_back(x);
+        }
+        matrix.push_back(row);
+    }
+
     vector<int> ans = spiralOrder(matrix);
     for (int i = 0; i < ans.size(); i++)
         cout << ans[i] << " ";
 }
+
+
+// 1 2 3 4
+// 4 5 6 7
+// 7 8 9 10
