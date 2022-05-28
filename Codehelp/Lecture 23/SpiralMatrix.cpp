@@ -6,23 +6,23 @@ vector<int> spiralOrder(vector<vector<int>> &matrix)
     int r = matrix.size();
     int c = matrix[0].size();
 
-    int k = (sqrt(r * c) - 1) / 2;
-    int i = 0, j = 0;
+    int i = 0, count = 0;
 
     vector<int> ans;
-    for (int count = 0; count <= k; count++)
+    int startRow = 0, startCol = 0, endRow = r-1, endCol = c-1;
+    while (count <= r * c)
     {
-        while (j < c - count) ans.push_back(matrix[i][j++]);
-        j--;i++;
+        for (int i = startCol; i <= endCol && count<=r*c;i++,count++) ans.push_back(matrix[startRow][i]);
+        startRow++;
+        
+        for (int i = startRow;i<=endRow &&  count <= r * c;i++,count++) ans.push_back(matrix[i][endCol]);
+        endCol--;
 
-        while (i < r - count) ans.push_back(matrix[i++][j]);
-        i--;j--;
+        for (int i = endCol;i>=startCol && count <= r * c;i--,count++) ans.push_back(matrix[endRow][i]);
+        endRow--;
 
-        while (j >= count) ans.push_back(matrix[i][j--]);
-        j++;i--;
-
-        while (i > count) ans.push_back(matrix[i--][j]);
-        i++;j++;
+        for (int i = endRow;i>=startRow && count <= r * c;i--,count++) ans.push_back(matrix[i][startCol]);
+        startCol++;
     }
 
     return ans;
