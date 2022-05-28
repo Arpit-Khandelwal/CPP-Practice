@@ -1,4 +1,6 @@
 //https://www.codingninjas.com/codestudio/problems/print-like-a-wave_893268
+#include<bits/stdc++.h>
+using namespace std;
 vector<int> wavePrint(vector<vector<int>> arr, int nRows, int mCols)
 {
     //Write your code here
