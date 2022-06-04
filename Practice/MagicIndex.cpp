@@ -6,10 +6,9 @@ using namespace std;
 int magicIndex(vector<int> a, int n)
 {
     // Write your code here
-
-    for (int i : a)
+    for (int i = 0; i < n; i++)
     {
-        if (i == n)
+        if (i == a[i])
         {
             // cout << i;
             return i;
@@ -18,23 +17,19 @@ int magicIndex(vector<int> a, int n)
     return -1;
 }
 
-
 int main()
 {
 
     vector<int> a;
     int size;
-    cin>>size;
-
-    int n;
-    cin >> n;
-
-    for(int i=0;i<size;i++)
+    cin >> size;
+    for (int i = 0; i < size; i++)
     {
         int x;
-        cin>>x;
+        cin >> x;
         a.push_back(x);
     }
-    cout << magicIndex(a, 7);
+    
+    cout << magicIndex(a, size);
     return 0;
 }
