@@ -12,7 +12,7 @@ int countPrimes(int n)
         if (prime[i])
         {
             count++;
-            for (int j = i * 2; j < n; j += i)  //sieve of eratosthenes
+            for (int j = i * 2; j < n; j += i) // sieve of eratosthenes
                 prime[j] = false;
         }
     }
@@ -24,6 +24,5 @@ int main()
     int n;
     cin >> n;
 
-    cout<<countPrimes(n)<<endl;
-    
+    cout << countPrimes(n) << endl;
 }
