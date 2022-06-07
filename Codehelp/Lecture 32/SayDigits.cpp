@@ -26,7 +26,11 @@ string numToWord(int n, string arr[], string ans)
 int main()
 {
     string arr[10]={"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
-    cout<<numToWord(520,arr,"");
+
+    int n;
+    cin >> n;
+    
+    cout<<numToWord(n,arr,"");
     
     return 0;
 }
