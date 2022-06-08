@@ -1,17 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int recursiveBinarySearch(int l, int h, int *arr, int n)
+{
+    if (l > h)
+        return -1;
+    int mid = l + (h - l) / 2;
+    if (arr[mid] == mid)
+        return mid;
+    else if (arr[mid] > mid)
+        return recursiveBinarySearch(l, mid - 1, arr, n);
+    else
+        return recursiveBinarySearch(mid + 1, h, arr, n);
+}
+
 int binarySearch(int *input, int n, int val)
 {
-    
+
     //Write your code here
-    int l=0,h=n-1;
-    int mid = l+h/2;
-    
-    int num = *(input+mid);
-    if(num==val) return mid;
-    else if(num<val) return binarySearch(input+mid,n,val);
-    else return binarySearch(input,mid-1,val);
+    return recursiveBinarySearch(0, n - 1, input, n);
 }
 
 int main()
