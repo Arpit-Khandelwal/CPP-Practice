@@ -3,13 +3,23 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-string reverseString(string str)
+string reverseString(string str, int i, int j)
 {
     // Write your code here.
+    // time taking
+    /*
     if (str.length() == 1)
         return str;
 
-    return reverseString(str.substr(1, str.length())) + str[0];
+    return reverseString(str.substr(1, str.length())) + str[0]; 
+`   */
+
+    if(i>=j)
+        return str;
+
+    swap(str[i++], str[j--]);
+    return reverseString(str, i, j);
+    
 }
 
 void solve()
@@ -17,7 +27,8 @@ void solve()
     string s;
     cin >> s;
 
-    cout << reverseString(s)<<endl;
+    cout<<reverseString(s, 0, s.length() - 1);
+    // cout<<s<< endl;
 }
 
 int main() {
