@@ -27,8 +27,7 @@ int missingNumber(vector<int> nums)
     // Your code goes here
     int N = nums.size();
 
-    return sum(nums,N) - ((N*(N+1))/2);
-    
+    return ((N * (N + 1)) / 2) - sum(nums, N - 1);
 }
 
 void solve()
