@@ -14,12 +14,16 @@ string reverseString(string str, int i, int j)
     return reverseString(str.substr(1, str.length())) + str[0]; 
 `   */
 
+    /*i,j recusion
     if(i>=j)
         return str;
 
     swap(str[i++], str[j--]);
     return reverseString(str, i, j);
-    
+    */
+    //no recusion STL - logic--
+    reverse(str.begin(), str.end());
+    return str;
 }
 
 void solve()
