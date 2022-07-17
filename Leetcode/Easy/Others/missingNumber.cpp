@@ -4,16 +4,31 @@ using namespace std;
 #define mod 1000000007
 
 
-int missingNumber(vector<int> &nums)
+// int missingNumber(vector<int> &nums)
+// {
+
+//     int n = nums.size();
+//     int sum = n * (n + 1) / 2;
+
+//     for (int i = 0; i < n; i++)
+//         sum -= nums[i];
+
+//     return sum;
+// }
+
+int sum(vector<int> nums,int N)
 {
+    if(N==0) return 0;
+    
+    return nums[N-1]+sum(nums,N-1);
+}
+int missingNumber(vector<int> nums)
+{
+    // Your code goes here
+    int N = nums.size();
 
-    int n = nums.size();
-    int sum = n * (n + 1) / 2;
-
-    for (int i = 0; i < n; i++)
-        sum -= nums[i];
-
-    return sum;
+    return sum(nums,N) - ((N*(N+1))/2);
+    
 }
 
 void solve()
