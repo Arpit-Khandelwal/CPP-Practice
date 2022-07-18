@@ -28,13 +28,25 @@ string reverseString(string &str, int i, int j) //pass by reference vvimp
     return str;
 }
 
+string reverseString(string &str, int i)  //using single pointer
+{
+    int j = str.length() - i - 1;
+    if(i>=j)
+        return str;
+
+    swap(str[i], str[j]);
+
+    return reverseString(str, i+1);
+}
+
 void solve()
 {
     string s;
     cin >> s;
 
-    cout<<reverseString(s, 0, s.length() - 1);
-    // cout<<s<< endl;
+    // cout<<reverseString(s, 0, s.length() - 1)<<endl;
+
+    cout<<reverseString(s,0)<< endl;
 }
 
 int main() {
