@@ -3,7 +3,7 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-string reverseString(string str, int i, int j)
+string reverseString(string &str, int i, int j) //pass by reference vvimp
 {
     // Write your code here.
     // time taking
@@ -14,13 +14,15 @@ string reverseString(string str, int i, int j)
     return reverseString(str.substr(1, str.length())) + str[0]; 
 `   */
 
-    /*i,j recusion
+    //i,j recusion
+    
     if(i>=j)
         return str;
 
     swap(str[i++], str[j--]);
     return reverseString(str, i, j);
-    */
+    
+
     //no recusion STL - logic--
     reverse(str.begin(), str.end());
     return str;
