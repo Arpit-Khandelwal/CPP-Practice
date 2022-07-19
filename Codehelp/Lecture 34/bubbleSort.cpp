@@ -17,10 +17,21 @@ void bubbleSort(int *arr, int n)
     bubbleSort(arr, n - 1);
 }
 
-
 void solve()
 {
-    
+    int n;
+    cin>>n;
+
+    int arr[n];
+    for (int i = 0; i < n;i++)
+        cin >> arr[i];
+
+    bubbleSort(arr, n);
+
+    for(int i:arr)
+        cout << i << " ";
+
+    cout << endl;
 }
 
 int main() {
