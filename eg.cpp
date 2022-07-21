@@ -1,56 +1,87 @@
+#include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-#define mod 1000000007
-
-void solve()
+int dp[200001][200001];
+int fnc(stack<char> st, string s, int a)
 {
-    multiset<int> num;
-
-    int n;
-    cin >> n;
-
-    for (int i = 0; i < n; i++)
+    int b = st.size();
+    if (dp[a][b] != -1)
     {
-        int x;
-        cin >> x;
-        num.insert(x);
+        return dp[a][b];
     }
-
-    sort(num.begin(), num.end());
-
-    int cost = 0;
-    int index = 0;
-    int sum = 0;
-
-    while (num.lower_bound(1) != num.end())
+    if (a == s.length())
     {
-        multiset<int>::iterator itr = num.lower_bound(1);
-
-        sum = *(num.lower_bound(1)) + *(++itr);
-
-        num.erase(num.lower_bound(1));
-
-
-        index += 2;
-        cost += sum;
-
-        num.insert(sum);
+        if (st.empty())
+        {
+            dp[a][b] = 1;
+            return 1;
+        }
+        else
+        {
+            dp[a][b] = 0;
+            return 0;
+        }
     }
-
-    cout << cost;
+    if (s[a] == '?')
+    {
+        if (st.empty())
+        {
+            st.push('(');
+            dp[a][b] = fnc(st, s, a + 1);
+            return dp[a][b];
+        }
+        else
+        {
+            int x, y;
+            st.push('(');
+            x = fnc(st, s, a + 1);
+            st.pop();
+            st.pop();
+            y = fnc(st, s, a + 1);
+            dp[a][b] = x + y;
+            return x + y;
+        }
+    }
+    else if (s[a] == '(')
+    {
+        st.push('(');
+        dp[a][b] = fnc(st, s, a + 1);
+        return dp[a][b];
+    }
+    else
+    {
+        if (st.empty())
+        {
+            dp[a][b] = 0;
+            return 0;
+        }
+        else
+        {
+            st.pop();
+            dp[a][b] = fnc(st, s, a + 1);
+            return dp[a][b];
+        }
+    }
 }
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
-    int t;
-    cin >> t;
-
-    while (t--)
-        solve();
+    int n;
+    cin >> n;
+    while (n--)
+    {
+        memset(dp, -1, sizeof(dp));
+        string s;
+        cin >> s;
+        stack<char> st;
+        if (fnc(st, s, 0) == 1)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
+        }
+    }
     return 0;
 }
