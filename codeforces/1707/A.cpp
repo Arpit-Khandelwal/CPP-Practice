@@ -16,17 +16,35 @@ void solve()
         difficulty.push_back(x);
     }
     //input done
+    string s = "";
+    for (int i : difficulty)
+    {
+        if (q <= 0)
+            break;
 
+        else if (i > q)
+        {
+            q--;
+            s += "0";
+        }
+        else
+        {
+            s += "1";
+        }
+
+        cout << s << endl;
+    }
 }
 
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    ll test=1;
-    cin>>test;
-    while(test--)
+    ll test = 1;
+    cin >> test;
+    while (test--)
     {
         solve();
     }
