@@ -10,7 +10,7 @@ long long int findFallDamage(vector<int> heights, int a, int b)
     return damage;
 }
 
-long long int solve(vector<int> heights, int n)
+long long int solve(vector<int> heights)
 {
     int a, b;
     cin >> a >> b;
@@ -21,12 +21,12 @@ long long int solve(vector<int> heights, int n)
         for (int i = a; i < b; i++)
         {
             if (heights[i] > heights[i + 1])
-                damage += heights[i + 1] - heights[i];
+                damage += heights[i] - heights[i+1];
         }
     }
     else
     {
-        for (int i = b; i > a;i--)
+        for (int i = a; i > b;i--)
         {
             if(heights[i]>heights[i-1])
                 damage += heights[i] - heights[i - 1];
@@ -45,18 +45,15 @@ int main()
     int n, m;
     cin >> n >> m;
 
-    vector<int> heights(n);
-    heights.push_back(-1);
-    int x;
-    for (int i = 0; i < n; i++)
+    vector<int> heights(n+1);
+    for (int i = 1; i <= n; i++)
     {
-        cin >> x;
-        heights.push_back(x);
+        cin >> heights[i];
     }
 
     while (m--)
     {
-        cout << solve(heights, n) << endl;
+        cout << solve(heights) << endl;
     }
     return 0;
 }
