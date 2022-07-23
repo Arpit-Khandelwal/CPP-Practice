@@ -1,10 +1,11 @@
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-int dp[200001][200001];
-int fnc(stack<char> st, string s, int a)
+#define ll long long
+ll int dp[200001][200001];
+ll int fnc(stack<char> st, string s, ll int a)
 {
-    int b = st.size();
+    ll int b = st.size();
     if (dp[a][b] != -1)
     {
         return dp[a][b];
@@ -32,7 +33,7 @@ int fnc(stack<char> st, string s, int a)
         }
         else
         {
-            int x, y;
+            ll int x, y;
             st.push('(');
             x = fnc(st, s, a + 1);
             st.pop();
@@ -66,7 +67,7 @@ int fnc(stack<char> st, string s, int a)
 
 int main()
 {
-    int n;
+    ll int n;
     cin >> n;
     while (n--)
     {
