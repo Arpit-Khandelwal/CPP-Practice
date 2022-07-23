@@ -6,7 +6,6 @@ using namespace std;
 ll merge(ll a[], ll s, ll mid, ll e)
 {
     ll temp[e - s + 1];
-
     ll count = 0;
 
     ll p1 = s, p2 = mid, p3 = 0;
@@ -17,34 +16,24 @@ ll merge(ll a[], ll s, ll mid, ll e)
             count += (mid - p1);
             temp[p3++] = a[p2++];
         }
-        else
-        {
-            temp[p3++] = a[p1++];
-        }
+        else temp[p3++] = a[p1++];
+        
     }
-    while (p1 < mid)
-    {
-        temp[p3++] = a[p1++];
-    }
-    while (p2 <= e)
-    {
-        temp[p3++] = a[p2++];
-    }
-
-    for (ll i = 0; i < e - s + 1; i++)
-    {
-        a[s + i] = temp[i];
-    }
+    while (p1 < mid) temp[p3++] = a[p1++];
+    while (p2 <= e) temp[p3++] = a[p2++];
+    
+    for (ll i = 0; i < e - s + 1; i++)  a[s + i] = temp[i];
+    
     return count;
 }
 ll mergesort(ll arr[], ll s, ll e)
 {
 
-    if (s >= e)
-        return 0;
-    ll mid = s + (e - s) / 2;
+    if (s >= e) return 0;
 
+    ll mid = s + (e - s) / 2;
     ll count = 0;
+    
     count += mergesort(arr, s, mid);
     count += mergesort(arr, mid + 1, e);
 
