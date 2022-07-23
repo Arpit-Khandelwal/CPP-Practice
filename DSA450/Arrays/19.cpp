@@ -22,6 +22,8 @@ vector<int> commonElements(int A[], int B[], int C[], int n1, int n2, int n3)
         else if(B[j]<C[k]) j++;
         else k++;
     }
+
+    return ans;
 }
 void solve()
 {
