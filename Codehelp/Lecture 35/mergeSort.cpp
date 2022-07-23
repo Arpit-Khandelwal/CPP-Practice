@@ -2,7 +2,7 @@
 using namespace std;
 #define ll long long
 #define mod 1000000007
-
+// better implementation here https://github.com/Arpit-Khandelwal/CPP-Practice/blob/master/DSA450/Arrays/16.cpp
 void merge(int *arr, int s, int e)
 {
     int mid = s + (e - s) / 2;
