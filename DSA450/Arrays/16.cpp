@@ -3,54 +3,58 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-int binarySearch(long long a[], long long n, long long k)
+ll merge(ll a[], ll s, ll mid, ll e)
 {
-    k++;
-    int l = 0, h = n - 1, mid;
-    while (l < h)
+    ll temp[e - s + 1];
+
+    ll count = 0;
+
+    ll p1 = s, p2 = mid, p3 = 0;
+    while (p1 < mid and p2 <= e)
     {
-        mid = l + ((h - l) / 2);
-        if (a[mid] > k)
-            h--;
-        else if (a[mid] < k)
-            l++;
-        else
-            return mid;
-    }
-    return -1;
-}
-
-long long int inversionCount(long long arr[], long long n)
-{
-    // Your Code Here
-
-    long long a[n];
-    copy(arr, arr + n, a);
-    sort(a, a + n);
-
-    long long int count = 0;
-
-    for (long long int i = 0; i < n; i++)
-    {
-        int index = binarySearch(a, n, arr[i]);
-
-        if (index == -1)
-            continue;
+        if (a[p1] > a[p2])
+        {
+            count += (mid - p1);
+            temp[p3++] = a[p2++];
+        }
         else
         {
-            swap(a[index], arr[i]);
-            count++;
+            temp[p3++] = a[p1++];
         }
-        /*
-        for (long long int j = i + 1; j < N; j++)
-        {   //bruteforce logic
-            if (arr[i] > arr[j])    //TLE
-                count++;
-        }
+    }
+    while (p1 < mid)
+    {
+        temp[p3++] = a[p1++];
+    }
+    while (p2 <= e)
+    {
+        temp[p3++] = a[p2++];
+    }
 
-        */
+    for (ll i = 0; i < e - s + 1; i++)
+    {
+        a[s + i] = temp[i];
     }
     return count;
+}
+ll mergesort(ll arr[], ll s, ll e)
+{
+
+    if (s >= e)
+        return 0;
+    ll mid = s + (e - s) / 2;
+
+    ll count = 0;
+    count += mergesort(arr, s, mid);
+    count += mergesort(arr, mid + 1, e);
+
+    count += merge(arr, s, mid + 1, e);
+    return count;
+}
+long long int inversionCount(long long arr[], long long N)
+{
+    // Your Code Here
+    return mergesort(arr, 0, N - 1);
 }
 
 void solve()
