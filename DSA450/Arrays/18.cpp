@@ -24,21 +24,27 @@ int getPairsCount(int arr[], int n, int k)
 
 void solve()
 {
-    
+    int n, k;
+    cin >> n >> k;
+
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    cout << getPairsCount(arr, n, k) << endl;
 }
 
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    ll test=1;
-    cin>>test;
-    while(test--)
+    ll test = 1;
+    cin >> test;
+    while (test--)
     {
         solve();
     }
     return 0;
 }
-
-    
