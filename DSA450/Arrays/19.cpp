@@ -33,8 +33,8 @@ void solve()
 
     int A[n1], B[n2], C[n3];
     for (int i = 0; i < n1; i++) cin>>A[i];
-    for (int i = 0; i < n2; i++) cin >> A[i];
-    for (int i = 0; i < n3; i++) cin >> A[i];
+    for (int i = 0; i < n2; i++) cin >> B[i];
+    for (int i = 0; i < n3; i++) cin >> C[i];
     
     //processing
     vector<int> ans = commonElements(A, B, C, n1, n2, n3);
