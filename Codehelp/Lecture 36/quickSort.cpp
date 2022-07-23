@@ -19,7 +19,7 @@ int partition(int arr[], int s, int e)
     int i = s, j = e;
     while (i < p && j > p)
     {
-        while (arr[i] < arr[p])
+        while (arr[i] <= arr[p])
             i++;
         while (arr[j] > arr[p])
             j--;
