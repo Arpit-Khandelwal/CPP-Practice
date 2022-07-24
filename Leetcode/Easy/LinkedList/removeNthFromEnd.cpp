@@ -18,7 +18,7 @@ ListNode *removeNthFromEnd(ListNode *head, int n)
     for (int i = 1; i <= n; i++)
         p2 = p2->next;
 
-    while (p2 && p2->next != NULL) // kind of sliding window
+    while (p2 && p2->next != nullptr) // kind of sliding window
     {
         p1 = p1->next;
         p2 = p2->next;
