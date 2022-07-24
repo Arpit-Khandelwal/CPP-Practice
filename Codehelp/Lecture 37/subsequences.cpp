@@ -25,3 +25,12 @@ vector<string> subsequences(string str)
     solve(str, 0, op, ans);
     return ans;
 }
+
+int main()
+{
+    string s;
+    cin>>s;
+
+    vector<string> ans = subsequences(s);
+    for(string i:ans) cout<<i<<endl;
+}
