@@ -25,3 +25,20 @@ vector<vector<int>> subsets(vector<int> &nums)
 
     return ans;
 }
+int main()
+{
+    int n;
+    cin>>n;
+
+    vector<int> arr(n, 0);
+    for (int i = 0; i < n;i++)
+        cin >> arr[i];
+
+    vector<vector<int>> ans = subsets(arr);
+    for(auto i:ans)
+    {
+        for(int j:i) cout<<j<<" ";
+        cout << endl;
+    }
+        
+}
