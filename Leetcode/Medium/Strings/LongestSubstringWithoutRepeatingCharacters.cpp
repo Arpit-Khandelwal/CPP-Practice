@@ -22,6 +22,29 @@ int lengthOfLongestSubstring(string s)
     }
 
     return maxi;
+
+    //sliding window
+    int n = s.length();
+
+    if (n <= 1)
+        return n;
+
+    int l = 0, r = 0, maxLen = 0;
+    vector<int> chars(256, 0);
+    while (r < n)
+    {
+        chars[s[r]]++;
+
+        while (chars[s[r]] > 1)
+        {
+            chars[s[l]]--;
+            l++;
+        }
+
+        maxLen = max(maxLen, r - l + 1);
+        r++;
+    }
+    return maxLen;
     /*
         // method 2 - github copilot
         unordered_map<char, int> m;
