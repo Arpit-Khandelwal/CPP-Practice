@@ -12,7 +12,7 @@ ListNode *removeNthFromEnd(ListNode *head, int n)
     p1 = head;
     p2 = head;
 
-    if (head->next == NULL)
+    if (head->next == nullptr)
         return nullptr;
 
     for (int i = 1; i <= n; i++)
