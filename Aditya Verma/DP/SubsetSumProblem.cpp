@@ -1,3 +1,6 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
 bool isSubsetSum(vector<int> arr, int sum)
 {
     // code here
@@ -23,4 +26,19 @@ bool isSubsetSum(vector<int> arr, int sum)
     }
 
     return t[n][sum];
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+
+    vector<int> arr(n);
+    int sum;
+    for (int i = 0; i < n;i++)
+        cin >> arr[i];
+
+    cin >> sum;
+
+    cout << isSubsetSum(arr, sum);
 }
