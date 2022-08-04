@@ -45,13 +45,15 @@ class Solution{
 	    vector<int> possibleSubsetSums;
 	    for(int j=0;j<=sum/2;j++) if(subsetSum[n][j]) possibleSubsetSums.push_back(j);
 	   // for(int i: possibleSubsetSums) cout<<i<<" ";
-	    int minSum=INT_MAX;
-	    for(int i:possibleSubsetSums)
-	    {
-	        minSum = min(minSum, sum-2*i);
-	    }
+// 	    int minSum=INT_MAX;
+// 	    for(int i:possibleSubsetSums)
+// 	    {
+// 	        minSum = min(minSum, sum-2*i);
+// 	    }
 	    
-	    return minSum;
+// 	    return minSum;
+	   return sum - 2*possibleSubsetSums.back();
+
 	    
 	} 
 };
