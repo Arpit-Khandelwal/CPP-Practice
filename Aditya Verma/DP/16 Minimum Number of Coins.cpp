@@ -1,20 +1,19 @@
 int minCoins(int coins[], int M, int V) 
 { 
+    
     // Your code goes here
     int dp[V+1];
-    // memset(dp,INT_MAX, sizeof(dp));
-    
-    dp[0]=0;
+    // memset(dp,INT_MAX,sizeof(dp));
     for(int i=1;i<=V;i++) dp[i]=INT_MAX;
+    dp[0]=0;	  
     
-    for(int i=1;i<=V;i++)
-    {
-        for(int j=0;j<M;j++)
+    for(int j=1;j<=V;j++)
+        for(int i=0;i<M;i++) 
         {
-            if(coins[j]<=i && dp[i-coins[j]]!=INT_MAX) dp[i]=min(dp[i], dp[i-coins[j]]+1);
+            if(coins[i]<=j && dp[j-coins[i]]!=INT_MAX) dp[j] = min(dp[j], 1+dp[j-coins[i]]);
         }
-    }
     
-    if(dp[V]==INT_MAX) return -1;
-    else return dp[V];
+    // for(int i:dp) cout<<i<<" ";
+    
+    return (dp[V]==INT_MAX)?-1:dp[V];
 } 
