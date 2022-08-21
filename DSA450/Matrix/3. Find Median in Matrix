@@ -1,0 +1,22 @@
+int median(vector<vector<int>> &matrix, int r, int c){
+        // code here     
+        
+        int median = 0;
+        
+        vector<int> linear;
+        for(auto i:matrix)
+        {
+            for(int j:i) linear.push_back(j);
+        }
+        
+        sort(linear.begin(), linear.end());
+        
+        int num = r*c;
+        if(num%2)
+        {
+            return linear[num/2];
+        }
+        else return (linear[num/2] + linear[num/2 - 1])/2;
+        
+        
+    }
